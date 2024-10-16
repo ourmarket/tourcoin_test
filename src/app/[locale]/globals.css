@@ -183,6 +183,25 @@ button {
   animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
 }
 
+/* HTML: <div class="loader"></div> */
+.spinner {
+  background-color: #921717;
+  width: 20px;
+  height: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #140d01 94%, #0000) top/5px 5px
+      no-repeat,
+    conic-gradient(#0000 30%, #130c01);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 5px), #000 0);
+  animation: l13 1s infinite linear;
+}
+
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
 @keyframes mltShdSpin {
   0% {
     box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,

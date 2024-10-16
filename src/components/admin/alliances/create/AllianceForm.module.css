@@ -104,6 +104,20 @@
   font-size: 1.1rem;
   margin-top: 20px;
 }
+.submitButton_loading {
+  background-color: var(--color-primary);
+  color: #000;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
 .submitButton:hover {
   background-color: #d4a60d;
@@ -111,4 +125,11 @@
 .error {
   color: red;
   font-size: 13px;
+}
+.form_error {
+  background-color: rgb(143, 58, 58);
+  text-align: center;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 10px;
 }

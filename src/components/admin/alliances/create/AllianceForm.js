@@ -7,6 +7,8 @@ import { v4 as uuidv4 } from "uuid";
 import UploadImageBtn from "./UploadImage";
 import { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AllianceForm = ({ onSubmit }) => {
   const initialValues = {
@@ -42,8 +44,11 @@ const AllianceForm = ({ onSubmit }) => {
     },
     // Datos generales
     category: "",
+    position: undefined,
     lat: "",
     lng: "",
+    accept_TRC: false,
+    wallet: "",
 
     // Enlaces de contacto
     link_whatsapp: "",
@@ -62,7 +67,7 @@ const AllianceForm = ({ onSubmit }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values, resetForm) => {
     setIsLoading(true);
     const formData = new FormData();
 
@@ -93,7 +98,9 @@ const AllianceForm = ({ onSubmit }) => {
 
       console.log(response.data); // Manejar la respuesta como sea necesario
 
-      if (response.ok) {
+      if (response?.data?.ok) {
+        toast.success("Alianza creada con éxito!");
+        resetForm();
         setPreviews([]);
         setSelectedFiles([]);
       }
@@ -107,6 +114,8 @@ const AllianceForm = ({ onSubmit }) => {
 
   return (
     <div className={styles.container}>
+      <ToastContainer position="top-right" autoClose={3000} />
+
       <div className={styles.title}>
         <h1>Crear nueva alianza</h1>
       </div>
@@ -114,11 +123,14 @@ const AllianceForm = ({ onSubmit }) => {
         initialValues={initialValues}
         validationSchema={allianceValidationYup}
         enableReinitialize
-        onSubmit={(values) => {
-          handleSubmit({
-            ...values,
-            allianceId: uuidv4(),
-          });
+        onSubmit={(values, { resetForm }) => {
+          handleSubmit(
+            {
+              ...values,
+              allianceId: uuidv4(),
+            },
+            resetForm
+          );
         }}
       >
         {({ setFieldValue }) => (
@@ -541,7 +553,43 @@ const AllianceForm = ({ onSubmit }) => {
                 className={styles.error}
               />
             </div>
+            <div className={styles.field}>
+              <label className={styles.label} htmlFor="accept_TRC">
+                Acepta TRC
+              </label>
+              <Field
+                as="select"
+                className={styles.selectInput}
+                id="accept_TRC"
+                name="accept_TRC"
+              >
+                <option value="false" label="NO" />
+                <option value="true" label="SI" />
+              </Field>
+              <ErrorMessage
+                name="accept_TRC"
+                component="div"
+                className={styles.error}
+              />
+            </div>
 
+            <div className={styles.field}>
+              <label className={styles.label} htmlFor="wallet">
+                Wallet
+              </label>
+              <Field
+                className={styles.textInput}
+                type="text"
+                id="wallet"
+                name="wallet"
+                placeholder="Ingresa si corresponde"
+              />
+              <ErrorMessage
+                name="wallet"
+                component="div"
+                className={styles.error}
+              />
+            </div>
             <div className={styles.field}>
               <label className={styles.label} htmlFor="position">
                 Posición
@@ -551,6 +599,7 @@ const AllianceForm = ({ onSubmit }) => {
                 type="number"
                 id="position"
                 name="position"
+                placeholder="Ingresa un numero entero"
               />
               <ErrorMessage
                 name="position"
@@ -677,9 +726,17 @@ const AllianceForm = ({ onSubmit }) => {
               setPreviews={setPreviews}
             />
 
-            <button type="submit" className={styles.submitButton}>
-              Crear Alianza
-            </button>
+            {isLoading && (
+              <button type="submit" className={styles.submitButton_loading}>
+                <div className="spinner"></div>Cargando...
+              </button>
+            )}
+            {!isLoading && (
+              <button type="submit" className={styles.submitButton}>
+                Crear Alianza
+              </button>
+            )}
+            {error && <div className={styles.form_error}>⚠️Error: {error}</div>}
           </Form>
         )}
       </Formik>

@@ -42,12 +42,16 @@ const allianceValidationYup = Yup.object().shape({
 
   // Datos generales
   category: Yup.string().required("La categoría es obligatoria"),
+  position: Yup.number()
+    .typeError("La posición debe ser un número")
+    .required("La posición es obligatoria"),
   lat: Yup.number()
     .typeError("La latitud debe ser un número")
     .required("La latitud es obligatoria"),
   lng: Yup.number()
     .typeError("La longitud debe ser un número")
     .required("La longitud es obligatoria"),
+  wallet: Yup.string().typeError("La wallet debe ser un string"),
 
   // Enlaces de contacto (opcionales)
   link_whatsapp: Yup.string().url("Debe ser una URL válida").nullable(),
