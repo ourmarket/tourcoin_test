@@ -1,0 +1,251 @@
+.container {
+  padding: 50px 50px;
+  padding-bottom: 100px;
+  color: var(--color-white);
+}
+.limit {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.limit h2 {
+  font-family: var(--font_4);
+  font-weight: 400;
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: var(--color-white);
+}
+.limit small {
+  font-family: var(--font_4);
+  font-weight: 400;
+  font-size: 15px;
+  display: block;
+  margin-bottom: 10px;
+  color: var(--color-yellow);
+}
+.limit p {
+  font-family: var(--font_4);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: center;
+  color: var(--color-white);
+}
+.wrapper {
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+.wrapper_2 {
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.left img {
+  width: 100%;
+}
+.right img {
+  width: 100%;
+}
+
+.col {
+  display: flex;
+  gap: 60px;
+}
+.right ul li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.color_1 {
+  background-color: #febc5b;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+}
+.color_2 {
+  background-color: #ff914a;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+}
+.color_3 {
+  background-color: #545454;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+}
+.color_4 {
+  background-color: #737373;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+}
+.color_5 {
+  background-color: #a6a6a6;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+}
+.color_6 {
+  background-color: #d8dad9;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+}
+.color_7 {
+  background-color: #0ac1e1;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+}
+.color_8 {
+  background-color: #8bdde1;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+}
+.color_9 {
+  background-color: #57decd;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+}
+.color_10 {
+  background-color: #27bf8f;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+}
+.left_data {
+  border: 1px solid #545454;
+  border-radius: 20px;
+  padding: 10px 50px;
+  min-height: 410px;
+}
+.left_data h3 {
+  color: var(--color-yellow);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+.row {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 50px;
+}
+
+.contract {
+  position: relative;
+}
+.contract:hover {
+  cursor: pointer;
+  color: "#ccc";
+}
+.clipboard {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  font-size: 12px;
+  color: #27bf8f;
+}
+@media (max-width: 1440px) {
+  .wrapper_2 {
+    gap: 50px;
+    flex-direction: column;
+  }
+  .wrapper {
+    gap: 50px;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 50px 20px;
+  }
+  .wrapper {
+    gap: 50px;
+    flex-direction: column;
+  }
+  .wrapper_2 {
+    gap: 50px;
+    flex-direction: column;
+  }
+  .left_data {
+    width: 95%;
+  }
+  .left_data h3 {
+    border-bottom: 1px solid #545454;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid #545454;
+    padding: 20px 0;
+    margin-bottom: 0px;
+  }
+  .row:last-child {
+    border-bottom: none;
+  }
+  .clipboard {
+    position: absolute;
+    bottom: -15px;
+    left: 40%;
+    font-size: 12px;
+    color: #27bf8f;
+  }
+}
+@media (max-width: 550px) {
+  .col {
+    flex-direction: column;
+    gap: 0;
+  }
+  .right ul li {
+    margin-bottom: 25px;
+  }
+  .left_data {
+    padding: 10px 10px;
+  }
+  .contract {
+    font-size: 12px;
+  }
+}
+@media (max-width: 383px) {
+  .contract {
+    font-size: 11px;
+  }
+  .left_data {
+    width: 100%;
+    border: none;
+  }
+}

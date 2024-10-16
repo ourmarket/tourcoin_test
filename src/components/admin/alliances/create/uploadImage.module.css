@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.customLabel {
+  color: var(--color-primary);
+}
+
+.input {
+  display: none;
+}
+.customFileUpload {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-white);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: var(--color-black);
+}
+.customFileUpload:hover {
+  background-color: #b4b4b4;
+}
+
+.previewContainer {
+  display: flex;
+  padding: 0;
+  margin-top: 10px;
+  gap: 20px;
+}
+.previewItem {
+  position: relative;
+
+  border: 5px solid #ccc;
+
+  border-radius: 10px;
+  width: 19%;
+  overflow: hidden;
+}
+.thumbnail {
+  width: 100%;
+  display: block;
+}
+
+.uploadButton {
+  background-color: var(--color-primary);
+}
+
+.removeButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: var(--color-black);
+  color: var(--color-primary);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+}

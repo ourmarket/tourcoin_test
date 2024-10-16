@@ -1,0 +1,133 @@
+.container {
+  min-height: 100vh;
+  margin-top: 150px;
+  color: var(--color-white);
+}
+.limit {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.limit h1 {
+  margin-bottom: 20px;
+  color: var(--color-white);
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.photo1 {
+  grid-area: 1 / 1 / 5 / 7;
+  overflow: hidden;
+}
+
+.photo2 {
+  grid-area: 1 / 7 / 3 / 10;
+}
+.photo3 {
+  grid-area: 1 / 10 / 3 / 13;
+}
+.photo4 {
+  grid-area: 3 / 7 / 5 / 10;
+}
+.photo5 {
+  grid-area: 3 / 10 / 5 / 13;
+}
+.photo1 img {
+  width: 101%;
+  display: block;
+}
+.photo2 img {
+  width: 100%;
+  display: block;
+}
+.photo3 img {
+  width: 100%;
+  display: block;
+}
+.photo4 img {
+  width: 100%;
+  display: block;
+}
+.photo5 img {
+  width: 100%;
+  display: block;
+}
+
+.info {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  gap: 50px;
+}
+.left {
+  flex: 1.2;
+}
+.right {
+  flex: 0.8;
+  border: 1px solid #313131;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+}
+
+.btn {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+  width: 100%;
+  height: 40px;
+  font-family: var(--font_4);
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.btn a {
+  color: var(--color-black);
+  cursor: pointer;
+  font-size: 16px;
+}
+.divider {
+  border-top: 1px solid #313131;
+  border-bottom: 1px solid #313131;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+.slider {
+  display: none;
+}
+.slider img {
+  display: block;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .container {
+    min-height: 100vb;
+    margin-top: 100px;
+    margin-bottom: 60px;
+  }
+  .info {
+    flex-direction: column;
+  }
+  .grid_container {
+    display: none;
+  }
+  .slider {
+    display: block;
+    width: 100%;
+  }
+  .slider img {
+    display: block;
+    width: 100%;
+  }
+}

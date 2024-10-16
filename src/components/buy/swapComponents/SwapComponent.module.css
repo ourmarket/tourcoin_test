@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.limit {
+  max-width: 1400px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .limit h2 {
+  font-family: var(--font_4);
+  font-weight: 400;
+  font-size: 40px;
+
+  letter-spacing: 2px;
+  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 20px;
+}
+.container .limit .sub_title {
+  font-family: var(--font_4);
+  font-weight: 400;
+  font-size: 16px;
+
+  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 60px;
+}
+.container .limit .steps {
+  font-family: var(--font_4);
+  font-weight: 400;
+  font-size: 16px;
+
+  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 15px;
+}
+.container .limit small {
+  font-family: var(--font_4);
+  font-weight: 400;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+  color: var(--color-yellow);
+  margin-bottom: 10px;
+}
+
+.connectButton {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.connectButton:hover {
+  background-color: #5a4dcf;
+}

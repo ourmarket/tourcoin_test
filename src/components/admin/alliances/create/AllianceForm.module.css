@@ -1,0 +1,114 @@
+.container {
+  padding: 50px;
+}
+.title {
+  background-color: var(--color-primary);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: #121212;
+
+  border-radius: 8px;
+  color: #fff;
+}
+.form h3 {
+  text-align: center;
+  margin: 20px 0;
+}
+.row {
+  display: flex;
+  gap: 20px;
+}
+.column {
+  width: 100%;
+
+  flex: 1;
+}
+.column h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.field {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+.textInput {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #1c1c1c;
+  color: #fff;
+  font-size: 1rem;
+}
+.textArea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 100px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background-color: #1c1c1c;
+  border: 1px solid #444;
+  color: #fff;
+  font-size: 1rem;
+  font-family: var(--font_4);
+}
+.selectInput {
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #1c1c1c;
+  appearance: none; /* Eliminar el estilo por defecto del navegador */
+  cursor: pointer;
+  color: var(--color-white);
+}
+
+.selectInput:focus {
+  outline: none;
+  border-color: var(--color-white); /* Cambiar el borde al hacer foco */
+}
+
+.fileInput {
+  padding: 8px;
+}
+
+.checkboxInput {
+  width: 20px;
+  height: 20px;
+}
+
+.submitButton {
+  background-color: var(--color-primary);
+  color: #000;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+.submitButton:hover {
+  background-color: #d4a60d;
+}
+.error {
+  color: red;
+  font-size: 13px;
+}

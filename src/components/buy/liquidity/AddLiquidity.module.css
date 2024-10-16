@@ -1,0 +1,53 @@
+.addLiquidity {
+  background-color: #1c1c1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  width: 500px;
+  margin: 0 auto;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.addLiquidity h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #f8f8f8;
+}
+
+.inputGroup {
+  margin-bottom: 15px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 5px;
+  color: #a1a1a1;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #2c2c2e;
+  color: #f8f8f8;
+  font-size: 16px;
+}
+
+.btnComprar {
+  width: 100%;
+  padding: 10px;
+  background-color: #f4b400;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #1c1c1e;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btnComprar:hover {
+  background-color: #db9a00;
+}

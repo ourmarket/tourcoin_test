@@ -1,0 +1,272 @@
+.banner_section {
+  height: 89vh;
+  color: var(--color-white);
+  position: relative;
+  margin: 0 50px;
+  margin-top: 50px;
+}
+.banner_bg {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: -1;
+  overflow: hidden;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://ik.imagekit.io/mrprwema7/Tour%20Coin/animate4_LCr94on2k.png?updatedAt=1709213145681");
+  animation: moVebounce 5s linear infinite;
+}
+
+.video_bg {
+  width: 105%;
+  position: relative;
+  left: -5px;
+}
+
+.banner_container {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.wrapper {
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+.wrapper_flex {
+  width: 100%;
+
+  display: flex;
+  height: 50vh;
+}
+
+.banner_title {
+  width: 50%;
+  padding: 40px;
+  padding-left: 0;
+  padding-top: 100px;
+}
+.banner_video {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.banner_video_container {
+  position: relative;
+  height: 95%;
+  width: 100%;
+}
+.banner_title h1 {
+  font-size: clamp(5rem, 3.987rem + 5.063vw, 10rem);
+  font-family: "Teko", sans-serif;
+  letter-spacing: 4px;
+  line-height: clamp(6.25rem, 4.821rem + 7.143vw, 11.25rem);
+  line-height: 8rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px #747474, -1px -1px 2px #747474;
+}
+.banner_title h6 {
+  font-size: clamp(1.063rem, 0.731rem + 0.924vw, 1.563rem);
+  font-size: clamp(0.938rem, 0.9rem + 0.19vw, 1.125rem);
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 25px;
+  font-family: var(--font4);
+}
+.banner_title button {
+  background-color: var(--color-yellow);
+  color: var(--color-black3);
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  margin-top: 35px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.1s;
+  font-family: var(--font4);
+  font-weight: bold;
+  outline: none;
+}
+.banner_title button a {
+  color: var(--color-black3);
+}
+.banner_title button:hover {
+  border: 2px solid var(--color-white);
+}
+
+.video_one {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 37%;
+  border-radius: 8px;
+  border: 4px solid var(--color-yellow);
+
+  max-height: 440px;
+  overflow: hidden;
+  display: block;
+}
+.video_two {
+  position: absolute;
+  top: 0%;
+  left: 31%;
+
+  max-height: 440px;
+  overflow: hidden;
+  width: 37%;
+  border-radius: 8px;
+  border: 4px solid var(--color-yellow);
+}
+.video_three {
+  position: absolute;
+  top: 25%;
+  right: 0%;
+
+  max-height: 440px;
+  overflow: hidden;
+  width: 37%;
+  border-radius: 8px;
+  border: 4px solid var(--color-yellow);
+}
+
+.animation_one {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: -1;
+  top: 300px;
+  left: 40px;
+  animation: animationFramesOne 25s linear infinite;
+}
+.animation_two {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: -1;
+  top: 200px;
+  left: 800px;
+  animation: animationFramesOne 40s linear infinite;
+}
+.animation_three {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: -1;
+  top: 200px;
+  right: 200px;
+  animation: animationFramesOne 25s linear infinite;
+}
+
+@keyframes scrollDown {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/* @media (max-width: 1280px) {
+  .banner_bg {
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  .banner_title {
+    left: 50px;
+    bottom: 50px;
+  }
+} */
+@media (min-width: 768px) {
+  .banner_section {
+    height: 100vh;
+    margin: 0 0px;
+    margin-top: 0px;
+  }
+  .txt {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  .banner_title {
+    width: 100%;
+    padding: 20px;
+    padding-left: 0;
+    padding-top: 80px;
+  }
+  .banner_video {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  .banner_section {
+    height: 89vh;
+    color: var(--color-white);
+    position: relative;
+    margin: 0 0px;
+    margin-top: 50px;
+  }
+  .banner_title {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .banner_title h1 {
+    line-height: 5rem;
+  }
+}
+
+@keyframes animationFramesOne {
+  0% {
+    transform: translate(0) rotate(0deg);
+  }
+
+  20% {
+    transform: translate(73px, -1px) rotate(36deg);
+  }
+
+  40% {
+    transform: translate(141px, 72px) rotate(72deg);
+  }
+
+  60% {
+    transform: translate(83px, 122px) rotate(108deg);
+  }
+
+  80% {
+    transform: translate(-40px, 72px) rotate(144deg);
+  }
+
+  to {
+    transform: translate(0) rotate(0deg);
+  }
+}
+
+@keyframes moVebounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(50px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
