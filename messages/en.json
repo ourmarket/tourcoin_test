@@ -1,0 +1,212 @@
+{
+  "banner": {
+    "title": "Where every <code>TourCoin</code> tells an adventure story. Join us at the forefront of the travel revolution and discover a world of possibilities, your journey, your currency, your <code>TourCoin</code>.",
+    "button": "Buy",
+    "whitepaper": "https://www.canva.com/design/DAGAE4DRHaQ/eksbmF1eBsuvi3sZ79smdQ/view?utm_content=DAGAE4DRHaQ&utm_campaign=designshare&utm_medium=link&utm_source=editor"
+  },
+  "banner_tutorials": {
+    "title": "In this section, we explain step by step how to buy <code>TourCoin</code>.",
+    "button": "Buy",
+    "buy": "How to buy"
+  },
+  "banner_community": {
+    "title": "We invite you to be part of the <code>TourCoin</code> community, where you can experience unforgettable moments.",
+    "button": "Buy",
+    "buy": "Community"
+  },
+  "banner_services": {
+    "title": "Services",
+    "sub_title": "These are part of the services of the <code>TourCoin</code> community, where you can experience unforgettable moments."
+  },
+
+  "navbar": {
+    "Home": "Home",
+    "profile": "My profile",
+    "About": "Mission",
+    "Actives": "Alliances",
+    "Community": "Community",
+    "Language": "Language",
+    "Spanish": "Spanish",
+    "English": "English",
+    "Portuguese": "Portuguese",
+    "back": "Back",
+    "buy": "How to buy",
+    "login": "Login"
+  },
+  "marquee": {
+    "volume": "- Volume 24hs",
+    "liquidity": "- Liquidity"
+  },
+  "section_1": {
+    "title_1": "What is a <code>TourCoin</code> and how does it work?",
+    "title_2": "How to buy and use <code>TourCoin</code>?",
+    "text_1_1": "<code>TourCoin</code> is a token on the decentralized Binance Smart Chain (BSC), specifically designed for the tourism industry. It is a type of digital currency that revolutionizes your travel experiences. Driven by blockchain technology and supported by the robust Binance network, it is used for purchases, payments, and value storage.",
+    "text_1_2": "<code>TourCoin</code> gives you the freedom to explore the world in a unique and secure way.",
+    "text_2_1": "Users can acquire <code>TourCoin</code> through cryptocurrency exchanges or directly from the PancakeSwap platform. Once acquired, <code>TourCoin</code> are stored in a digital wallet such as MetaMask.",
+    "text_2_2": "By using <code>TourCoin</code>, travelers can enjoy an innovative approach to making payments and transactions in the tourism industry, providing a smoother and more rewarding experience. Travel, smile, and pay with <code>TourCoin</code>. Happiness is found in every <code>TourCoin</code> you own.",
+    "button": "Buy"
+  },
+  "section_1_tutorials": {
+    "small": "We invite you to be part of the TourCoin ecosystem",
+    "h2": "Tutorial on how to buy <code>TourCoin</code>",
+    "h2_1": "Download the <code>MetaMask</code> wallet",
+    "p_1": "Welcome to <code>TourCoin</code>, where you can turn your travels into unforgettable moments! We are excited that you are joining our community of explorers and tourism enthusiasts. To start your journey with <code>TourCoin</code>, we recommend the following essential steps.",
+    "title_1": "Step 1",
+    "title_2": "Step 2",
+    "title_3": "Step 3",
+    "title_4": "Step 4",
+    "text_1": "Tutorial on how to create an account on Binance and download the app.",
+    "text_2": "Fund fiat currency on Binance and buy Bnb.",
+    "text_3": "Download the MetaMask wallet and load your TourCoin token.",
+    "text_4": "How to buy TourCoin (TRC) with Bnb.",
+    "button": "See tutorial",
+    "video_1": "https://www.youtube.com/embed/G7PYcoXoyIU",
+    "video_2": "https://www.youtube.com/embed/7VlYyw2SYPE",
+    "video_3": "https://www.youtube.com/embed/MB0ywuS3CmA",
+    "video_4": "https://www.youtube.com/embed/HSV0At2kftY"
+  },
+
+  "section_1_community": {
+    "small": "Events",
+    "title": "<code>TourCoin</code> Launch Event",
+    "p_1": "Here are some images from the <code>TourCoin</code> launch event at Chacra San Andres, at the La Taba restaurant.",
+    "title_2": "ProCar 4000 Event",
+    "p_2": "<p>The adrenaline of Argentina's <a href='http://www.procar4000.com.ar/' target='_blank'>ProCar 4000</a> mixed with the innovation of <strong>TourCoin</strong>, alongside <a href='https://www.tiktok.com/@ina_gallo' target='_blank'>@ina_gallo</a>, <strong>Gastón Costa, Claudio Costa</strong>. <br /> An epic event, a devoted audience. Thank you for opening the doors to this unforgettable experience!</p>",
+    "title_3": "Celebration of <code>TourCoin's</code> First Month",
+    "p_3": "<p>An unforgettable weekend, thanks to <a href='https://www.instagram.com/taba_resto/' target='_blank'>@taba_resto</a> and the magic of <a href='https://www.instagram.com/flyfishingmaster.patagonia/'target='_blank'>@flyfishingmaster.patagonia</a>.<br />Discover how TourCoin made every moment a unique experience.</p>"
+  },
+  "section_1_services": {
+    "small": "Services",
+    "h2": "Departments",
+    "p_1": "These are our departments in Celso Ramos, Brazil."
+  },
+  "section_1_services_nav": {
+    "li_1": "All",
+    "li_2": "Accommodations",
+    "li_3": "Services",
+    "li_4": "Restaurants"
+  },
+  "section_1_services_rooms": {
+    "consult": "Check prices and availability",
+    "airbnb": "View on Airbnb"
+  },
+
+  "section_2": {
+    "small": "Benefits",
+    "h2": "Benefits of using <code>TourCoin</code>",
+    "p_1": "TourCoin offers you the best benefits",
+    "card_1": {
+      "title": "Tokenization of Tangible Assets",
+      "text": "Our company tokenizes tangible assets such as properties, tourism services, and commercial establishments. This allows investors to access investments in the thriving tourism sector in Celso Ramos, Brazil, in a more accessible and diversified way."
+    },
+    "card_2": {
+      "title": "Transparency",
+      "text": "Security tokens are issued on a blockchain, providing a public ledger. This ensures transparency in token management and allows investors to easily audit transactions and share issuances."
+    },
+    "card_3": {
+      "title": "Appreciation",
+      "text": "The growing demand for <code>TourCoin</code> in the tourism sector may result in potential appreciation of the same, offering attractive investment opportunities."
+    },
+    "card_4": {
+      "title": "Borderless Travel",
+      "text": "Traveling has never been easier! <code>TourCoin</code> eliminates barriers in international payments, allowing you to enjoy your travels without worrying about exchange rates and bank fees."
+    },
+    "card_5": {
+      "title": "Discounts",
+      "text": "Simply load your <code>TourCoin</code> into your digital wallet and unlock a wide range of travel experiences. Use your coins with our partnerships and enjoy exclusive discounts."
+    },
+    "card_6": {
+      "title": "Voting Rights and Dividends",
+      "text": "Our security tokens can be designed to grant investors voting rights and dividends, similar to common stocks. This gives investors an active role in business decisions and potential regular income streams."
+    }
+  },
+  "section_3": {
+    "small": "Mission and Vision",
+    "title": "A glimpse into the future",
+    "title_1": "Mission",
+    "title_2": "Vision",
+    "title_3": "Values",
+    "text_1": "Facilitating happy and worry-free travel experiences by offering <code>TourCoin</code> to people. We want to be the key that unlocks unforgettable moments and smiles at every destination.",
+    "text_2": "Revitalizing joy in travel through <code>TourCoin</code>, becoming the currency of happiness for exploring the world.",
+    "text_3_1": "✔ Happiness First: We place the traveler's joy at the center of our actions.",
+    "text_3_2": "✔ Financial Empowerment: We provide freedom and happiness through secure and transparent transactions.",
+    "text_3_3": "✔ Human Connection: We seek to enrich people's lives by connecting them with authentic experiences."
+  },
+  "section_4": {
+    "small": "Experiences",
+    "title": "Some lived experiences",
+    "p_1": "We offer agile and personalized attention, supported by the experience and technical capacity of a specialized team."
+  },
+  "section_5": {
+    "small": "How to buy",
+    "title": "<code>TourCoin</code> release date",
+    "p_1": "<code>TourCoin</code> will officially go on sale on April 5th at 9:00 PM.",
+    "p_2": "Happiness is found in every <code>TourCoin</code> you own! Experience innovative and exciting journeys with our tokens. With <code>TourCoin</code>, the whole world is at your fingertips. Invest in your happiness and explore new horizons with us! #UnlimitedTravel #InnovativeTravel",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "section_6": {
+    "small": "How to buy",
+    "title": "Tutorial on how to buy <code>TourCoin</code>",
+    "p_1": "Welcome to <code>TourCoin</code>, turns your travels into unforgettable moments! We are excited to have you join our community of explorers and tourism enthusiasts. To start your journey with <code>TourCoin</code>, we recommend two essential steps.",
+    "title_1": "Download the wallet MetaMask",
+    "text_1": "Download the recommended wallet MetaMask for security and easy management of <code>TourCoin</code>. We suggest downloading the MetaMask wallet. This digital wallet gives you full control over your assets and facilitates transactions. Below, you will find a video on how to install MetaMask.",
+    "title_2": "Buy <code>TourCoin</code> on PancakeSwap",
+    "text_2": "Now that you have your MetaMask wallet, it's time to acquire <code>TourCoin</code>. We use PancakeSwap, a secure and efficient platform for exchanging cryptocurrencies. Below, we show you step by step how to buy <code>TourCoin</code> on PancakeSwap."
+  },
+  "section_7": {
+    "small": "Information",
+    "title": "Information about <code>TourCoin</code>",
+    "p_1": "Here you can see all the token information, transactions, and quotations."
+  },
+  "section_8": {
+    "small": "Our Team",
+    "title": "Meet the People Behind <br /> All This Work",
+    "p_1": "Our team consists of global experts and passionate professionals whose motivation and<br /> dedication to their work is fundamental to the success of <strong>TourCoin</strong>."
+  },
+
+  "section_9": {
+    "small": "Tokenomics",
+    "title": "Token Breakdown and Supplies",
+    "p_1": "TourCoin is a utility and governance token designed to transform your travel experiences. With a maximum supply of <code>100,000,000</code> and an innovative token burn mechanism <code>(TRC)</code>, <code>TourCoin</code> offers scarcity, stability, and community engagement. Join the financial tourism revolution with <code>TourCoin</code>, where every token is a step towards your dream journey.",
+    "p_2": "<p>The wallets <a href='https://bscscan.com/address/0xeebf0956f0a9e1bb5920a487653a5b16cee86856#readContract' target='_blank'> 0xEEBF0956F0A9e1BB5920A487653a5B16cEE86856 </a> (holding 77.77% of the tokens), and <a href='https://bscscan.com/address/0xe5b1f26989b7b6a518f2f783a890093df7b78dc7#readContract' target='_blank'> 0xe5b1f26989B7b6A518F2f783a890093Df7b78dC7 </a> (holding 3.03% of the tokens) are locked and only release 0.64% and 0.16% of the total supply every 30 days.</p>",
+    "li_1": "Development funds 8%",
+    "li_2": "Airdrops and community 18%",
+    "li_3": "Staking 13%",
+    "li_4": "Liquidity provider 16%",
+    "li_5": "Team 9%",
+    "li_6": "Marketing 4%",
+    "li_7": "Expansion 8%",
+    "li_8": "Liquidity funds 10%",
+    "li_9": "Lockup 8%",
+    "li_10": "Pre-sale 6%",
+    "card_title": "TourCoin Token Contract",
+    "Network": "Network",
+    "Contrato": "Contract",
+    "Nombre": "Name",
+    "Simbolo": "Symbol",
+    "img_url": "https://ik.imagekit.io/mrprwema7/Tour%20Coin/ingles_oHKvgNPfl.webp?updatedAt=1715865890837"
+  },
+
+  "footer": {
+    "title_1": "The Company",
+    "title_2": "Contact",
+    "title_3": "Buy Token",
+    "title_4": "Follow Us",
+    "link_1": "TourCoin",
+    "link_2": "Experiences",
+    "link_3": "Mission",
+    "link_4": "FAQ",
+    "link_5": "Email",
+    "link_6": "WhatsApp",
+    "link_7": "Telegram",
+    "link_8": "https://www.calameo.com/read/0076202107a7d34aa76e5",
+    "link_9": "https://www.canva.com/design/DAGAE4DRHaQ/eksbmF1eBsuvi3sZ79smdQ/view?utm_content=DAGAE4DRHaQ&utm_campaign=designshare&utm_medium=link&utm_source=editor",
+    "link_10": "How to buy"
+  },
+  "profile": {
+    "connect": "Connect your wallet"
+  }
+}
