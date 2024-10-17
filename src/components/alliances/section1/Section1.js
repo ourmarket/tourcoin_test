@@ -9,9 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { Link } from "@/navigation";
-import { es, en, pt } from "../../../../data/data";
 import { useEffect, useRef, useState } from "react";
-
 import { MapProvider } from "../googleMap/MapProvider";
 import { Maps } from "../googleMap/Maps";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,16 +19,16 @@ export const CardSlider = ({ images, data, isMobile }) => {
   const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
-    dispatch(setActive(data.id));
+    dispatch(setActive(data.allianceId));
   };
 
   const handleMouseLeave = () => {
-    dispatch(setInActive(data.id));
+    dispatch(setInActive(data.allianceId));
   };
 
   return (
     <div className={styles.card}>
-      <Link href={`/alliances/${data.id}`}>
+      <Link href={`/alliances/${data.allianceId}`}>
         <div
           className={
             data.active && !isMobile
@@ -70,12 +68,14 @@ export const CardSlider = ({ images, data, isMobile }) => {
   );
 };
 
-export const Section1 = () => {
+export const Section1 = ({ dataApi }) => {
+  console.log(dataApi);
   const dispatch = useDispatch();
 
   const { alliances } = useSelector((store) => store.alliances);
 
   const [data, setData] = useState([]);
+
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -87,15 +87,54 @@ export const Section1 = () => {
       .split("=")[1];
 
     if (locale === "es") {
-      setData(es);
+      const dataMap = dataApi.map((item) => {
+        return {
+          ...item,
+          title: item.localization.es.title,
+          sub_title: item.localization.es.sub_title,
+          details: item.localization.es.details,
+          service_1: item.localization.es.service_1,
+          service_1_details: item.localization.es.service_1_details,
+          service_2: item.localization.es.service_2,
+          service_2_details: item.localization.es.service_2_details,
+          active: false,
+        };
+      });
+      setData(dataMap);
     }
     if (locale === "en") {
-      setData(en);
+      const dataMap = dataApi.map((item) => {
+        return {
+          ...item,
+          title: item.localization.en.title,
+          sub_title: item.localization.en.sub_title,
+          details: item.localization.en.details,
+          service_1: item.localization.en.service_1,
+          service_1_details: item.localization.en.service_1_details,
+          service_2: item.localization.en.service_2,
+          service_2_details: item.localization.en.service_2_details,
+          active: false,
+        };
+      });
+      setData(dataMap);
     }
     if (locale === "pt") {
-      setData(pt);
+      const dataMap = dataApi.map((item) => {
+        return {
+          ...item,
+          title: item.localization.pt.title,
+          sub_title: item.localization.pt.sub_title,
+          details: item.localization.pt.details,
+          service_1: item.localization.pt.service_1,
+          service_1_details: item.localization.pt.service_1_details,
+          service_2: item.localization.pt.service_2,
+          service_2_details: item.localization.pt.service_2_details,
+          active: false,
+        };
+      });
+      setData(dataMap);
     }
-  }, []);
+  }, [dataApi]);
 
   useEffect(() => {
     dispatch(setAlliances(data));

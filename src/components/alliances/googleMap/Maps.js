@@ -198,16 +198,16 @@ function ClientMarker({ data }) {
   const router = useRouter();
 
   const handleFocus = () => {
-    dispatch(setActive(data.id));
+    dispatch(setActive(data.allianceId));
   };
 
   const handleBlur = () => {
-    dispatch(setInActive(data.id));
+    dispatch(setInActive(data.allianceId));
   };
 
   const handleClick = () => {
     // Navegación a una nueva ruta
-    router.push(`/alliances/${data.id}`);
+    router.push(`/alliances/${data.allianceId}`);
   };
 
   const divStyle = {
