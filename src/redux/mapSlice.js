@@ -5,15 +5,17 @@ const mapSlice = createSlice({
   name: "alliances",
   initialState: {
     alliances: [],
+    alliancesDisplay: [],
   },
   reducers: {
     setAlliances: (state, action) => {
       state.alliances = [...action.payload];
+      state.alliancesDisplay = [...action.payload];
     },
     setActive: (state, action) => {
       console.log(action.payload);
       const allianceId = action.payload;
-      const alliance = state.alliances.find(
+      const alliance = state.alliancesDisplay.find(
         (alliance) => alliance.allianceId === allianceId
       );
       if (alliance) {
@@ -22,7 +24,7 @@ const mapSlice = createSlice({
     },
     setInActive: (state, action) => {
       const allianceId = action.payload;
-      const alliance = state.alliances.find(
+      const alliance = state.alliancesDisplay.find(
         (alliance) => alliance.allianceId === allianceId
       );
       if (alliance) {
@@ -31,15 +33,15 @@ const mapSlice = createSlice({
     },
     setCategory: (state, action) => {
       const category = action.payload.category;
-      state.alliances = action.payload.data.filter(
+      state.alliancesDisplay = state.alliances.filter(
         (alliance) => alliance.category === category
       );
     },
     setCategoryAll: (state, action) => {
-      state.alliances = [...action.payload];
+      state.alliancesDisplay = state.alliances;
     },
     clearAlliances: (state) => {
-      state.alliances = [];
+      state.alliancesDisplay = [];
     },
   },
 });

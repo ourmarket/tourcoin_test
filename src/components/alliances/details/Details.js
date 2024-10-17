@@ -1,26 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 "use client";
-
-import { useParams } from "next/navigation";
 import styles from "./details.module.css";
-import { es, en, pt } from "../../../../data/data";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Mousewheel, Navigation, Pagination } from "swiper/modules";
 import { MapProvider } from "../googleMap/MapProvider";
 import { Maps } from "../googleMap/Maps";
-import { useDispatch, useSelector } from "react-redux";
-import { clearAlliances } from "@/redux/mapSlice";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import { decimalLimit } from "@/utils/decimalLimit";
 import { useGetBalance } from "@/hooks/useGetBalance";
-import { Loading } from "@/components/loader/Loading";
-import { useFetchApi } from "@/hooks/useFetchApi";
 
 const CardSlider = ({ images }) => {
   return (

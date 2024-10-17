@@ -8,12 +8,14 @@ export const NavbarServices_index = () => {
   const li_2 = t_nav("li_2");
   const li_3 = t_nav("li_3");
   const li_4 = t_nav("li_4");
+  const li_5 = t_nav("li_5");
 
   const translations = {
     li_1,
     li_2,
     li_3,
     li_4,
+    li_5,
   };
 
   return <NavbarServices translations={translations} />;

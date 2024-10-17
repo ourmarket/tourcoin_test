@@ -73,7 +73,7 @@ export const Section1 = ({ dataApi }) => {
   console.log(dataApi);
   const dispatch = useDispatch();
 
-  const { alliances } = useSelector((store) => store.alliances);
+  const { alliancesDisplay } = useSelector((store) => store.alliances);
 
   const [data, setData] = useState([]);
 
@@ -187,7 +187,7 @@ export const Section1 = ({ dataApi }) => {
         <div className={styles.limit}>
           <div className={styles.wrapper}>
             <div className={styles.left}>
-              {alliances.map((item) => {
+              {alliancesDisplay.map((item) => {
                 return (
                   <CardSlider
                     key={item.allianceId}
