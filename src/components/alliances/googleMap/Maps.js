@@ -239,9 +239,9 @@ function ClientMarker({ data }) {
       onMouseOver={handleFocus}
       onMouseOut={handleBlur}
       onClick={handleClick}
-      icon={
+      /*  icon={
         "https://ik.imagekit.io/mrprwema7/Tour%20Coin/icon_eebdZFS_f.png?updatedAt=1717856754739"
-      }
+      } */
     >
       {data.active && (
         <InfoWindow
@@ -252,7 +252,17 @@ function ClientMarker({ data }) {
           onCloseClick={handleBlur}
         >
           <div style={divStyle}>
-            <h2 style={{ fontSize: "14px", color: "#111111" }}>{data.title}</h2>
+            <h2
+              style={{
+                fontSize: "14px",
+                color: "#111111",
+                marginBottom: "3px",
+                fontWeight: 800,
+              }}
+            >
+              {data.title}
+            </h2>
+            <h2 style={{ fontSize: "14px", color: "#222" }}>{data.details}</h2>
           </div>
         </InfoWindow>
       )}

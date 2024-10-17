@@ -12,15 +12,19 @@ const mapSlice = createSlice({
     },
     setActive: (state, action) => {
       console.log(action.payload);
-      const id = action.payload;
-      const alliance = state.alliances.find((alliance) => alliance.id === id);
+      const allianceId = action.payload;
+      const alliance = state.alliances.find(
+        (alliance) => alliance.allianceId === allianceId
+      );
       if (alliance) {
         alliance.active = true;
       }
     },
     setInActive: (state, action) => {
-      const id = action.payload;
-      const alliance = state.alliances.find((alliance) => alliance.id === id);
+      const allianceId = action.payload;
+      const alliance = state.alliances.find(
+        (alliance) => alliance.allianceId === allianceId
+      );
       if (alliance) {
         alliance.active = false;
       }

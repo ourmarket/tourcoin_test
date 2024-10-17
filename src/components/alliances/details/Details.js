@@ -19,6 +19,8 @@ import { clearAlliances } from "@/redux/mapSlice";
 import axios from "axios";
 import { decimalLimit } from "@/utils/decimalLimit";
 import { useGetBalance } from "@/hooks/useGetBalance";
+import { Loading } from "@/components/loader/Loading";
+import { useFetchApi } from "@/hooks/useFetchApi";
 
 const CardSlider = ({ images }) => {
   return (
@@ -96,12 +98,11 @@ const Accommodation = ({ data, translations }) => {
   );
 };
 const OtherCategory = ({ data, translations }) => {
+  console.log(data);
   const leftDetailRef = useRef(null);
   const [mapContainerHeight, setMapContainerHeight] = useState("442px"); // Default height
 
   useEffect(() => {
-    console.log(leftDetailRef);
-    console.log(leftDetailRef.current);
     if (leftDetailRef.current) {
       const leftDetailHeight = leftDetailRef.current.offsetHeight;
       setMapContainerHeight(`${leftDetailHeight}px`);
@@ -120,8 +121,6 @@ const OtherCategory = ({ data, translations }) => {
   };
 
   const defaultMapZoom = 13;
-
-  console.log(mapContainerHeight);
 
   // api dolar crypto https://dolarapi.com/v1/dolares/cripto
 
@@ -191,7 +190,7 @@ const OtherCategory = ({ data, translations }) => {
         <h1>{data.title}</h1>
         <div className={styles.flex_container}>
           <div className={styles.left_detail} ref={leftDetailRef}>
-            <img src={data.images[0]} alt="department" />
+            <img src={data?.images[0]} alt="department" />
           </div>
           <div className={styles.right_detail}>
             <Maps
@@ -213,13 +212,17 @@ const OtherCategory = ({ data, translations }) => {
               <p style={{ marginBottom: "5px" }}>
                 <strong>{data.service_1}</strong>
               </p>
-              <p>{data.service_1_1}</p>
+              <p>{data.service_1_details}</p>
               <br />
-              <p style={{ marginBottom: "5px" }}>
-                <strong>{data.service_2}</strong>
-              </p>
-              <p>{data.service_2_1}</p>
-              <br />
+              {data && data.service_2 && (
+                <>
+                  <p style={{ marginBottom: "5px" }}>
+                    <strong>{data.service_2}</strong>
+                  </p>
+                  <p>{data.service_2_details}</p>
+                  <br />
+                </>
+              )}
             </div>
           </div>
           <div className={styles.right}>
@@ -307,35 +310,7 @@ const OtherCategory = ({ data, translations }) => {
   );
 };
 
-export const Details = ({ translations }) => {
-  const { slug } = useParams();
-  const dispatch = useDispatch();
-
-  const [data, setData] = useState(es.find((item) => item.id === slug));
-
-  useEffect(() => {
-    const cookies = document.cookie;
-
-    const locale = cookies
-      .split("; ")
-      .find((row) => row.startsWith("NEXT_LOCALE"))
-      .split("=")[1];
-
-    if (locale === "es") {
-      setData(es.find((item) => item.id === slug));
-    }
-    if (locale === "en") {
-      setData(en.find((item) => item.id === slug));
-    }
-    if (locale === "pt") {
-      setData(pt.find((item) => item.id === slug));
-    }
-  }, []);
-
-  useEffect(() => {
-    dispatch(clearAlliances());
-  }, []);
-
+export const Details = ({ data, translations }) => {
   return (
     <section className={styles.container}>
       {data.category === "accommodation" && (

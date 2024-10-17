@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { Details } from "./Details";
+import DetailsFetch from "./DetailsFetch";
 
 export const Details_index = () => {
   const t = useTranslations("section_1_services_rooms");
@@ -12,5 +12,5 @@ export const Details_index = () => {
     airbnb,
   };
 
-  return <Details translations={translations} />;
+  return <DetailsFetch translations={translations} />;
 };

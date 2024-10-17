@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setActive, setAlliances, setInActive } from "@/redux/mapSlice";
 
 export const CardSlider = ({ images, data, isMobile }) => {
+  console.log(data);
   const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
@@ -60,10 +61,10 @@ export const CardSlider = ({ images, data, isMobile }) => {
           </Swiper>
         </div>
       </Link>
-      <h3>
+      <h3 style={{ textAlign: "center" }}>
         <strong>{data.title}</strong>
       </h3>
-      <p style={{ fontWeight: 300 }}>{data.sub_title}</p>
+      <p style={{ fontWeight: 300, textAlign: "center" }}>{data.sub_title}</p>
     </div>
   );
 };
@@ -189,7 +190,7 @@ export const Section1 = ({ dataApi }) => {
               {alliances.map((item) => {
                 return (
                   <CardSlider
-                    key={item.id}
+                    key={item.allianceId}
                     images={item.images}
                     data={item}
                     isMobile={isMobile}
