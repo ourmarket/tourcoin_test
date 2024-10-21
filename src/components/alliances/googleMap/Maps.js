@@ -194,6 +194,7 @@ const defaultMapStyles = [
 ];
 
 function ClientMarker({ data }) {
+  console.log(data);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -302,18 +303,18 @@ export const Maps = ({
     styles: defaultMapStyles,
   };
 
-  const { alliances } = useSelector((store) => store.alliances);
+  const { alliancesDisplay } = useSelector((store) => store.alliances);
 
   const [center, setCenter] = useState(defaultMapCenter);
 
   const mapRef = useRef(null);
 
   useEffect(() => {
-    const active = alliances.find((item) => item.active);
+    const active = alliancesDisplay.find((item) => item.active);
     if (active) {
       smoothPanTo({ lat: active.lat, lng: active.lng });
     }
-  }, [alliances]);
+  }, [alliancesDisplay]);
 
   const smoothPanTo = (newCenter) => {
     if (!mapRef.current) return;
@@ -332,8 +333,8 @@ export const Maps = ({
         options={defaultMapOptions}
         onLoad={(map) => (mapRef.current = map)}
       >
-        {alliances.map((item) => (
-          <ClientMarker data={item} key={item.id} />
+        {alliancesDisplay.map((item) => (
+          <ClientMarker data={item} key={item.allianceId} />
         ))}
         {marker && (
           <DetailMarker lat={defaultMapCenter.lat} lng={defaultMapCenter.lng} />

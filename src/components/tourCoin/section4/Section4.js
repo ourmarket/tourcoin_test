@@ -2,9 +2,9 @@
 /* eslint-disable @next/next/no-img-element */
 
 import styles from "./section4.module.css";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 export const Section4 = ({ translations }) => {

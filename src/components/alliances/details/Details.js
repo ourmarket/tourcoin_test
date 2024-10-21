@@ -145,7 +145,9 @@ const OtherCategory = ({ data, translations }) => {
 
       setValueBRL(data.tether.brl);
     };
-    getData();
+    if (data?.accept_TRC) {
+      getData();
+    }
   }, []);
 
   const handleValueChange = (newValue) => {
@@ -219,75 +221,83 @@ const OtherCategory = ({ data, translations }) => {
             </div>
           </div>
           <div className={styles.right}>
-            <div className={styles.payment}>
-              <h3>Pagar</h3>
-              <p>
-                Desde aquí puedes pagar a Gráfica Net Print con tus tokens TRC
-              </p>
+            {data?.accept_TRC && (
+              <div className={styles.payment}>
+                <h3>Pagar</h3>
+                <p>
+                  Desde aquí puedes pagar a Gráfica Net Print con tus tokens TRC
+                </p>
 
-              <div className={styles.input}>
-                <label>Moneda Local</label>
-                <select
-                  onChange={(e) => handleCurrencyChange(e.target.value)}
-                  value={localCurrency}
-                >
-                  <option value="ARS">ARS</option>
-                  <option value="BRL">BRL</option>
-                  <option value="USD">USD</option>
-                </select>
-              </div>
-              <div className={styles.input}>
-                <label>Monto en moneda local</label>
-                <input
-                  type="number"
-                  placeholder="0.00"
-                  value={quantityLocal}
-                  onChange={(e) => handleValueChange(e.target.value)}
-                />
-              </div>
-
-              <div className={styles.row}>
-                <div className={styles.row_50}>
-                  <label>Cantidad a pagar</label>
+                <div className={styles.input}>
+                  <label>Moneda Local</label>
+                  <select
+                    onChange={(e) => handleCurrencyChange(e.target.value)}
+                    value={localCurrency}
+                  >
+                    <option value="ARS">ARS</option>
+                    <option value="BRL">BRL</option>
+                    <option value="USD">USD</option>
+                  </select>
+                </div>
+                <div className={styles.input}>
+                  <label>Monto en moneda local</label>
                   <input
-                    disabled={true}
-                    type="text"
+                    type="number"
                     placeholder="0.00"
-                    value={`${quantityTRC} TRC`}
+                    value={quantityLocal}
+                    onChange={(e) => handleValueChange(e.target.value)}
                   />
                 </div>
-                <div className={styles.row_50}>
-                  <label>Disponible</label>
-                  <input
-                    disabled={true}
-                    type="text"
-                    placeholder="0.00"
-                    value={`${amountTRC} TRC`}
-                  />
-                </div>
-              </div>
 
-              <button className={styles.btn}>Pagar</button>
-            </div>
-            <div className={styles.card_right}>
-              <h3>{translations.consult}</h3>
-              <a href={data.link_whatsapp} target="_blank">
-                <button className={styles.btn}>WhatsApp</button>
-              </a>
-              <a href={data.link_instagram} target="_blank">
-                <button className={styles.btn}>Instagram</button>
-              </a>
-              {data?.link_tiktok && (
-                <a href={data.link_tiktok} target="_blank">
-                  <button className={styles.btn}>TikTok</button>
+                <div className={styles.row}>
+                  <div className={styles.row_50}>
+                    <label>Cantidad a pagar</label>
+                    <input
+                      disabled={true}
+                      type="text"
+                      placeholder="0.00"
+                      value={`${quantityTRC} TRC`}
+                    />
+                  </div>
+                  <div className={styles.row_50}>
+                    <label>Disponible</label>
+                    <input
+                      disabled={true}
+                      type="text"
+                      placeholder="0.00"
+                      value={`${amountTRC} TRC`}
+                    />
+                  </div>
+                </div>
+
+                <button className={styles.btn}>Pagar</button>
+              </div>
+            )}
+            {(data?.link_airbnb ||
+              data?.link_web ||
+              data?.link_tiktok ||
+              data?.link_instagram ||
+              data?.link_whatsapp) && (
+              <div className={styles.card_right}>
+                <h3>{translations.consult}</h3>
+                <a href={data.link_whatsapp} target="_blank">
+                  <button className={styles.btn}>WhatsApp</button>
                 </a>
-              )}
-              {data?.link_web && (
-                <a href={data.link_web} target="_blank">
-                  <button className={styles.btn}>Web</button>
+                <a href={data.link_instagram} target="_blank">
+                  <button className={styles.btn}>Instagram</button>
                 </a>
-              )}
-            </div>
+                {data?.link_tiktok && (
+                  <a href={data.link_tiktok} target="_blank">
+                    <button className={styles.btn}>TikTok</button>
+                  </a>
+                )}
+                {data?.link_web && (
+                  <a href={data.link_web} target="_blank">
+                    <button className={styles.btn}>Web</button>
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
         <div className={styles.map_mobile}>

@@ -88,6 +88,11 @@ export const Navbar = ({
                   {Home}
                 </Link>
               </li>
+              <li>
+                <Link href="/tourCoin" onClick={() => setMobile(false)}>
+                  TourCoin
+                </Link>
+              </li>
 
               <li>
                 <Link href="/alliances" onClick={() => setMobile(false)}>
