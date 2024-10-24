@@ -50,6 +50,11 @@ const AllianceForm = ({ onSubmit }) => {
     accept_TRC: false,
     wallet: "",
 
+    //ubicación
+    city: "",
+    province: "",
+    country: "",
+
     // Enlaces de contacto
     link_whatsapp: "",
     link_instagram: "",
@@ -608,6 +613,17 @@ const AllianceForm = ({ onSubmit }) => {
               />
             </div>
             <div className={styles.field}>
+              <label className={styles.label}>Destacado</label>
+              <Field
+                className={styles.checkboxInput}
+                type="checkbox"
+                id="outstanding"
+                name="outstanding"
+              />
+            </div>
+
+            <h3>Ubicación</h3>
+            <div className={styles.field}>
               <label className={styles.label} htmlFor="lat">
                 Latitud
               </label>
@@ -642,12 +658,56 @@ const AllianceForm = ({ onSubmit }) => {
             </div>
 
             <div className={styles.field}>
-              <label className={styles.label}>Destacado</label>
+              <label className={styles.label} htmlFor="city">
+                Ciudad
+              </label>
               <Field
-                className={styles.checkboxInput}
-                type="checkbox"
-                id="outstanding"
-                name="outstanding"
+                className={styles.textInput}
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Ingresa la ciudad"
+              />
+              <ErrorMessage
+                name="city"
+                component="div"
+                className={styles.error}
+              />
+            </div>
+
+            <div className={styles.field}>
+              <label className={styles.label} htmlFor="province">
+                Provincia
+              </label>
+              <Field
+                className={styles.textInput}
+                type="text"
+                id="province"
+                name="province"
+                placeholder="Ingresa la provincia"
+              />
+              <ErrorMessage
+                name="province"
+                component="div"
+                className={styles.error}
+              />
+            </div>
+
+            <div className={styles.field}>
+              <label className={styles.label} htmlFor="country">
+                País
+              </label>
+              <Field
+                className={styles.textInput}
+                type="text"
+                id="country"
+                name="country"
+                placeholder="Ingresa el país"
+              />
+              <ErrorMessage
+                name="country"
+                component="div"
+                className={styles.error}
               />
             </div>
 
