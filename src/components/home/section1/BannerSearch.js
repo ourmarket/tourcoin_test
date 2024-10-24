@@ -14,6 +14,8 @@ import { useFetchApi } from "@/hooks/useFetchApi";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import CardSkeleton from "@/components/loader/CardSkeleton";
 import { Link } from "@/navigation";
+import { useState } from "react";
+import BannerSearchOverlay from "./BannerSearchOverlay";
 
 const CardsSlider = ({ data, loading, error }) => {
   const cookies = document.cookie;
@@ -107,6 +109,15 @@ const BannerSearch = ({ translations }) => {
     `${process.env.NEXT_PUBLIC_API_URL}/alliances/outstanding`
   );
 
+  const [searchActive, setSearchActive] = useState(false);
+
+  const cookies = document.cookie;
+
+  const locale = cookies
+    .split("; ")
+    .find((row) => row.startsWith("NEXT_LOCALE"))
+    .split("=")[1];
+
   return (
     <>
       <section className={styles.container}>
@@ -173,7 +184,17 @@ const BannerSearch = ({ translations }) => {
           <input
             type="text"
             placeholder="Lugares donde ir, cosas que hacer..."
+            onClick={() => setSearchActive(true)}
           />
+          {searchActive && (
+            <>
+              <div
+                className={styles.overlay}
+                onClick={() => setSearchActive(false)}
+              ></div>
+              <BannerSearchOverlay outstanding={data} locale={locale} />
+            </>
+          )}
         </div>
         <div className={styles.banner}>
           <Swiper
