@@ -95,7 +95,10 @@ export const Navbar = ({
               </li>
 
               <li>
-                <Link href="/alliances" onClick={() => setMobile(false)}>
+                <Link
+                  href="/alliances?category=all"
+                  onClick={() => setMobile(false)}
+                >
                   {Actives}
                 </Link>
               </li>

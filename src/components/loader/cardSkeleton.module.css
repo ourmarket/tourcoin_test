@@ -1,0 +1,48 @@
+/* styles.css */
+.card_skeleton {
+  width: 100%;
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card_skeleton_img {
+  background: linear-gradient(
+    90deg,
+    #272727 25%,
+    #2e2e2e 50%,
+    #272727 75%
+  ); /* Gradiente para el shimmer */
+  border-radius: 8px;
+  margin: 10px;
+  padding: 20px;
+  width: 100%;
+  height: 280px;
+  background-size: 200% 100%; /* Aumenta el tamaño del fondo para el efecto de movimiento */
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0; /* Empieza desde la derecha */
+  }
+  100% {
+    background-position: 0 0; /* Termina en la izquierda */
+  }
+}
+
+.skeleton_title {
+  height: 20px; /* Altura del título */
+  width: 40%; /* Ancho del título */
+  margin-bottom: 10px; /* Espacio debajo del título */
+  background-color: #272727;
+}
+
+.skeleton_details {
+  height: 15px; /* Altura de los detalles */
+  width: 80%; /* Ancho completo */
+  margin-bottom: 5px; /* Espacio entre líneas */
+  background-color: #272727;
+}

@@ -9,6 +9,7 @@ const BannerSearch_index = () => {
   const li_3 = t_nav("li_3");
   const li_4 = t_nav("li_4");
   const li_5 = t_nav("li_5");
+  const li_6 = t_nav("li_6");
 
   const translations = {
     li_1,
@@ -16,6 +17,7 @@ const BannerSearch_index = () => {
     li_3,
     li_4,
     li_5,
+    li_6,
   };
 
   return <BannerSearch translations={translations} />;

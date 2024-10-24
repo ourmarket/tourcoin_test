@@ -15,7 +15,7 @@ import { Maps } from "../googleMap/Maps";
 import { useDispatch, useSelector } from "react-redux";
 import { setActive, setAlliances, setInActive } from "@/redux/mapSlice";
 
-export const CardSlider = ({ images, data, isMobile }) => {
+export const CardSlider = ({ images, data, isMobile, locale }) => {
   const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
@@ -61,9 +61,11 @@ export const CardSlider = ({ images, data, isMobile }) => {
         </div>
       </Link>
       <h3 style={{ textAlign: "center" }}>
-        <strong>{data.title}</strong>
+        <strong>{data.localization[locale].title}</strong>
       </h3>
-      <p style={{ fontWeight: 300, textAlign: "center" }}>{data.sub_title}</p>
+      <p style={{ fontWeight: 300, textAlign: "center" }}>
+        {data.localization[locale].sub_title}
+      </p>
     </div>
   );
 };
@@ -77,62 +79,21 @@ export const Section1 = ({ dataApi }) => {
 
   const [isMobile, setIsMobile] = useState(false);
 
+  const cookies = document.cookie;
+
+  const locale = cookies
+    .split("; ")
+    .find((row) => row.startsWith("NEXT_LOCALE"))
+    .split("=")[1];
+
   useEffect(() => {
-    const cookies = document.cookie;
-
-    const locale = cookies
-      .split("; ")
-      .find((row) => row.startsWith("NEXT_LOCALE"))
-      .split("=")[1];
-
-    if (locale === "es") {
-      const dataMap = dataApi.map((item) => {
-        return {
-          ...item,
-          title: item.localization.es.title,
-          sub_title: item.localization.es.sub_title,
-          details: item.localization.es.details,
-          service_1: item.localization.es.service_1,
-          service_1_details: item.localization.es.service_1_details,
-          service_2: item.localization.es.service_2,
-          service_2_details: item.localization.es.service_2_details,
-          active: false,
-        };
-      });
-      setData(dataMap);
-    }
-    if (locale === "en") {
-      const dataMap = dataApi.map((item) => {
-        return {
-          ...item,
-          title: item.localization.en.title,
-          sub_title: item.localization.en.sub_title,
-          details: item.localization.en.details,
-          service_1: item.localization.en.service_1,
-          service_1_details: item.localization.en.service_1_details,
-          service_2: item.localization.en.service_2,
-          service_2_details: item.localization.en.service_2_details,
-          active: false,
-        };
-      });
-      setData(dataMap);
-    }
-    if (locale === "pt") {
-      const dataMap = dataApi.map((item) => {
-        return {
-          ...item,
-          title: item.localization.pt.title,
-          sub_title: item.localization.pt.sub_title,
-          details: item.localization.pt.details,
-          service_1: item.localization.pt.service_1,
-          service_1_details: item.localization.pt.service_1_details,
-          service_2: item.localization.pt.service_2,
-          service_2_details: item.localization.pt.service_2_details,
-          active: false,
-        };
-      });
-      setData(dataMap);
-    }
+    const dataMap = dataApi.map((item) => {
+      return {
+        ...item,
+        active: false,
+      };
+    });
+    setData(dataMap);
   }, [dataApi]);
 
   useEffect(() => {
@@ -192,6 +153,7 @@ export const Section1 = ({ dataApi }) => {
                     images={item.images}
                     data={item}
                     isMobile={isMobile}
+                    locale={locale}
                   />
                 );
               })}
