@@ -130,7 +130,18 @@ const CardsSlider = ({ data, loading, error }) => {
 };
 
 const BannerSearch = ({ translations }) => {
-  const { li_1, li_2, li_3, li_4, li_5, li_6 } = translations;
+  const {
+    li_1,
+    li_2,
+    li_3,
+    li_4,
+    li_5,
+    li_6,
+    banner_1_1400,
+    banner_2_1400,
+    banner_1_530,
+    banner_2_530,
+  } = translations;
 
   const { data, loading, error } = useFetchApi(
     `${process.env.NEXT_PUBLIC_API_URL}/alliances/outstanding`
@@ -261,18 +272,12 @@ const BannerSearch = ({ translations }) => {
             >
               <SwiperSlide>
                 <div className={styles.banner_img}>
-                  <img
-                    src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/banner2_6dhTLVEnr.webp?updatedAt=1730242114713"
-                    alt="tourCoin"
-                  />
+                  <img src={banner_1_1400} alt="tourCoin" />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className={styles.banner_img}>
-                  <img
-                    src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/banner1_2hhTZjG14.webp?updatedAt=1730242114869"
-                    alt="tourCoin"
-                  />
+                  <img src={banner_2_1400} alt="tourCoin" />
                 </div>
               </SwiperSlide>
             </Swiper>
@@ -293,18 +298,12 @@ const BannerSearch = ({ translations }) => {
             >
               <SwiperSlide>
                 <div className={styles.banner_img}>
-                  <img
-                    src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/image_a9GiJPzFd.png?updatedAt=1730219591384"
-                    alt="tourCoin"
-                  />
+                  <img src={banner_1_530} alt="tourCoin" />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className={styles.banner_img}>
-                  <img
-                    src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/image_a9GiJPzFd.png?updatedAt=1730219591384"
-                    alt="tourCoin"
-                  />
+                  <img src={banner_2_530} alt="tourCoin" />
                 </div>
               </SwiperSlide>
             </Swiper>
