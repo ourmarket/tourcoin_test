@@ -244,7 +244,12 @@ const BannerSearch = ({ translations }) => {
                 placeholder="🔎 Lugares donde ir, cosas que hacer..."
                 onClick={() => setSearchActive(true)}
               />
-              <button className={styles.btn_search}>Buscar</button>
+              <button
+                className={styles.btn_search}
+                onClick={() => setSearchActive(true)}
+              >
+                Buscar
+              </button>
             </div>
             {searchActive && (
               <>
@@ -252,7 +257,11 @@ const BannerSearch = ({ translations }) => {
                   className={styles.overlay}
                   onClick={() => setSearchActive(false)}
                 ></div>
-                <BannerSearchOverlay outstanding={data} locale={locale} />
+                <BannerSearchOverlay
+                  outstanding={data}
+                  locale={locale}
+                  setSearchActive={setSearchActive}
+                />
               </>
             )}
           </div>
