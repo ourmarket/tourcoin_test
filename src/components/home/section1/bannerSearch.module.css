@@ -357,4 +357,14 @@
     width: 100%;
     border-radius: 5px;
   }
+  .h2 {
+    font-size: 30px;
+  }
+  .container2 {
+    margin: 0;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
