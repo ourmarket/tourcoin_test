@@ -4,13 +4,11 @@ import { Link } from "../../navigation";
 import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { AnimatePresence, motion } from "framer-motion";
-import LanguageChanger from "../languageChanger/LanguageChanger";
 import LanguageChangerReload from "../languageChanger/LanguageChangerReload";
 import Marquee from "../marquee/Marquee";
 import styles from "./navbar.module.css";
-import { Menu } from "./Menu";
 import { MenuReload } from "./MenuReload";
-import { useAccount } from "wagmi";
+import { FaUserCircle } from "react-icons/fa";
 
 export const Navbar = ({
   Home,
@@ -27,8 +25,6 @@ export const Navbar = ({
   volume,
   liquidity,
   marquee,
-  Login,
-  languageReload,
 }) => {
   const [mobile, setMobile] = useState(false);
 
@@ -48,7 +44,7 @@ export const Navbar = ({
     liquidity,
   };
   const [isVisible, setIsVisible] = useState(marquee);
-  const { address } = useAccount();
+
   return (
     <header>
       <AnimatePresence>
@@ -69,6 +65,9 @@ export const Navbar = ({
         }}
       >
         <div className={styles.container}>
+          <div className={styles.links_mobile} onClick={() => setMobile(true)}>
+            <IoMenu size={"2.5rem"} color={"#f9ba32"} />
+          </div>
           <div className={styles.center}>
             <Link href={"/"}>
               <Image
@@ -110,23 +109,17 @@ export const Navbar = ({
               </li>
 
               <li>
-                <Link href="/profile" onClick={() => setMobile(false)}>
-                  {profile}
-                </Link>
-              </li>
-
-              <li>
                 <LanguageChangerReload language={Language} />
               </li>
             </ul>
           </div>
           <div>
             <button className={styles.btn_buy}>
-              <Link href="/tutorials">{buy}</Link>
+              <Link href="/profile">{profile}</Link>
             </button>
           </div>
           <div className={styles.links_mobile} onClick={() => setMobile(true)}>
-            <IoMenu size={"3rem"} color={"#f9ba32"} />
+            <FaUserCircle size={"1.9rem"} color={"#f9ba32"} />
           </div>
         </div>
       </motion.nav>

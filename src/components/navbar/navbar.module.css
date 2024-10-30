@@ -192,6 +192,7 @@
   color: var(--color-white);
   z-index: 999999;
 }
+
 @media (max-width: 1220px) {
   .links {
     gap: 15px;
@@ -214,5 +215,17 @@
   }
   .btn_buy {
     display: none;
+  }
+  .center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo {
+    width: 140px;
+    height: 35px;
   }
 }

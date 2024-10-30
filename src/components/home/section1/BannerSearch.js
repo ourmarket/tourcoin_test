@@ -14,7 +14,7 @@ import { useFetchApi } from "@/hooks/useFetchApi";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import CardSkeleton from "@/components/loader/CardSkeleton";
 import { Link } from "@/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BannerSearchOverlay from "./BannerSearchOverlay";
 
 const CardsSlider = ({ data, loading, error }) => {
@@ -45,8 +45,31 @@ const CardsSlider = ({ data, loading, error }) => {
   return (
     <div className={styles.cards_container}>
       <Swiper
-        spaceBetween={15}
+        spaceBetween={10}
         slidesPerView={3}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          400: {
+            slidesPerView: 1,
+          },
+          698: {
+            slidesPerView: 2,
+          },
+          865: {
+            slidesPerView: 2,
+          },
+          1010: {
+            slidesPerView: 3,
+          },
+          1500: {
+            slidesPerView: 3,
+          },
+          1700: {
+            slidesPerView: 3,
+          },
+        }}
         loop={true}
         autoplay={{
           delay: 5000,
@@ -74,14 +97,18 @@ const CardsSlider = ({ data, loading, error }) => {
                       >
                         {item.images.map((image, index) => (
                           <SwiperSlide key={index}>
-                            <img
-                              src={`${image}`}
-                              alt="department"
-                              style={{
-                                display: "block",
-                                objectFit: "cover",
-                              }}
-                            />
+                            <div className={styles.image_container}>
+                              <img
+                                src={`${image}`}
+                                alt="department"
+                                style={{
+                                  display: "block",
+                                  objectFit: "cover",
+                                  width: "100%",
+                                  borderRadius: "5px",
+                                }}
+                              />
+                            </div>
                           </SwiperSlide>
                         ))}
                       </Swiper>
@@ -121,114 +148,167 @@ const BannerSearch = ({ translations }) => {
   return (
     <>
       <section className={styles.container}>
-        <h1 className={styles.title}>Que quieres hacer?</h1>
-        <nav className={styles.nav}>
-          <ul>
-            <li>
-              <Link
-                href="/alliances?category=all"
-                onClick={() => dispatch(setCategoryAll())}
-              >
-                <AiOutlineUnorderedList size={30} /> {li_1}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/alliances?category=accept_TRC"
-                onClick={() => dispatch(setCategoryTRC())}
-              >
-                <RiMoneyDollarCircleLine size={30} /> {li_6}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/alliances?category=activities"
-                onClick={() =>
-                  dispatch(setCategory({ category: "activities" }))
-                }
-              >
-                <BsStar size={30} /> {li_5}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/alliances?category=accommodation"
-                onClick={() =>
-                  dispatch(setCategory({ category: "accommodation" }))
-                }
-              >
-                <IoHomeOutline size={30} /> {li_2}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/alliances?category=services"
-                onClick={() => dispatch(setCategory({ category: "services" }))}
-              >
-                <BsCompass size={30} /> {li_3}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/alliances?category=gastronomy"
-                onClick={() =>
-                  dispatch(setCategory({ category: "gastronomy" }))
-                }
-              >
-                <MdOutlineDinnerDining size={30} /> {li_4}
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <div className={styles.search}>
-          <input
-            type="text"
-            placeholder="Lugares donde ir, cosas que hacer..."
-            onClick={() => setSearchActive(true)}
-          />
-          {searchActive && (
-            <>
-              <div
-                className={styles.overlay}
-                onClick={() => setSearchActive(false)}
-              ></div>
-              <BannerSearchOverlay outstanding={data} locale={locale} />
-            </>
-          )}
-        </div>
-        <div className={styles.banner}>
-          <Swiper
-            spaceBetween={1}
-            slidesPerView={1}
-            loop={true}
-            pagination={true}
-            navigation={true}
-            autoplay={{
-              delay: 6000,
-              disableOnInteraction: false,
-              reverseDirection: false,
-            }}
-            modules={[Autoplay, Navigation, Pagination, Mousewheel]}
-          >
-            <SwiperSlide>
-              <img
-                src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/WhatsApp%20Image%202024-10-18%20at%2013.07.25_4irAgbCf6.jpeg?updatedAt=1729267692690"
-                alt="tourCoin"
+        <div className={styles.limit}>
+          <h1 className={styles.title}>Que quieres hacer?</h1>
+          <nav className={styles.nav}>
+            <ul>
+              <li>
+                <Link
+                  href="/alliances?category=all"
+                  onClick={() => dispatch(setCategoryAll())}
+                >
+                  <AiOutlineUnorderedList size={30} /> {li_1}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/alliances?category=accept_TRC"
+                  onClick={() => dispatch(setCategoryTRC())}
+                >
+                  <RiMoneyDollarCircleLine size={30} /> {li_6}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/alliances?category=activities"
+                  onClick={() =>
+                    dispatch(setCategory({ category: "activities" }))
+                  }
+                >
+                  <BsStar size={30} /> {li_5}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/alliances?category=accommodation"
+                  onClick={() =>
+                    dispatch(setCategory({ category: "accommodation" }))
+                  }
+                >
+                  <IoHomeOutline size={30} /> {li_2}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/alliances?category=services"
+                  onClick={() =>
+                    dispatch(setCategory({ category: "services" }))
+                  }
+                >
+                  <BsCompass size={30} /> {li_3}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/alliances?category=gastronomy"
+                  onClick={() =>
+                    dispatch(setCategory({ category: "gastronomy" }))
+                  }
+                >
+                  <MdOutlineDinnerDining size={30} /> {li_4}
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <div className={styles.search}>
+            <input
+              type="text"
+              placeholder="Lugares donde ir, cosas que hacer..."
+              onClick={() => setSearchActive(true)}
+            />
+            {searchActive && (
+              <>
+                <div
+                  className={styles.overlay}
+                  onClick={() => setSearchActive(false)}
+                ></div>
+                <BannerSearchOverlay outstanding={data} locale={locale} />
+              </>
+            )}
+          </div>
+          <div className={styles.search_mobile}>
+            <div className={styles.search_mobile_input}>
+              <input
+                type="text"
+                placeholder="🔎 Lugares donde ir, cosas que hacer..."
+                onClick={() => setSearchActive(true)}
               />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/WhatsApp%20Image%202024-10-18%20at%2013.07.25_4irAgbCf6.jpeg?updatedAt=1729267692690"
-                alt="tourCoin"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/WhatsApp%20Image%202024-10-18%20at%2013.07.25_4irAgbCf6.jpeg?updatedAt=1729267692690"
-                alt="tourCoin"
-              />
-            </SwiperSlide>
-          </Swiper>
+              <button className={styles.btn_search}>Buscar</button>
+            </div>
+            {searchActive && (
+              <>
+                <div
+                  className={styles.overlay}
+                  onClick={() => setSearchActive(false)}
+                ></div>
+                <BannerSearchOverlay outstanding={data} locale={locale} />
+              </>
+            )}
+          </div>
+          <div className={styles.banner}>
+            <Swiper
+              spaceBetween={1}
+              slidesPerView={1}
+              loop={true}
+              pagination={true}
+              navigation={true}
+              autoplay={{
+                delay: 6000,
+                disableOnInteraction: false,
+                reverseDirection: false,
+              }}
+              modules={[Autoplay, Navigation, Pagination, Mousewheel]}
+            >
+              <SwiperSlide>
+                <div className={styles.banner_img}>
+                  <img
+                    src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/banner2_6dhTLVEnr.webp?updatedAt=1730242114713"
+                    alt="tourCoin"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.banner_img}>
+                  <img
+                    src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/banner1_2hhTZjG14.webp?updatedAt=1730242114869"
+                    alt="tourCoin"
+                  />
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+          <div className={styles.banner_mobile}>
+            <Swiper
+              spaceBetween={1}
+              slidesPerView={1}
+              loop={true}
+              pagination={true}
+              navigation={true}
+              autoplay={{
+                delay: 6000,
+                disableOnInteraction: false,
+                reverseDirection: false,
+              }}
+              modules={[Autoplay, Navigation, Pagination, Mousewheel]}
+            >
+              <SwiperSlide>
+                <div className={styles.banner_img}>
+                  <img
+                    src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/image_a9GiJPzFd.png?updatedAt=1730219591384"
+                    alt="tourCoin"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.banner_img}>
+                  <img
+                    src="https://ik.imagekit.io/mrprwema7/Tour%20Coin/image_a9GiJPzFd.png?updatedAt=1730219591384"
+                    alt="tourCoin"
+                  />
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
       </section>
       <section className={styles.container2}>
