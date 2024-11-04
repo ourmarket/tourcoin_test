@@ -210,10 +210,20 @@
   "profile": {
     "connect": "Conecta tu wallet"
   },
-  "home": {
+  "banner_home": {
     "banner_1_1400": "https://ik.imagekit.io/mrprwema7/Tour%20Coin/banners/1_1400_es_FD9ZCogJ-.webp?updatedAt=1730300372026",
     "banner_2_1400": "https://ik.imagekit.io/mrprwema7/Tour%20Coin/banners/2_1400_es_6HwuIWPDn.webp?updatedAt=1730300371374",
     "banner_1_530": "https://ik.imagekit.io/mrprwema7/Tour%20Coin/banners/2_530_es_FSamLgR63.webp?updatedAt=1730300370683",
     "banner_2_530": "https://ik.imagekit.io/mrprwema7/Tour%20Coin/banners/1%20_530_es_r67OhGPfB.webp?updatedAt=1730300371972"
+  },
+  "home": {
+    "title": "Que quieres hacer?",
+    "placeholder": "Lugares donde ir, cosas que hacer...",
+    "button": "Buscar",
+    "recommendation": "Recomendación",
+    "empty_recommendation": "⚠️ No hay resultados para esa búsqueda",
+    "small_1": "Recomendaciones",
+    "title_2": "Lugares recomendados",
+    "p_1": "Estos son los lugares que te recomendamos desde TourCoin."
   }
 }

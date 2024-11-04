@@ -14,7 +14,7 @@ import { useFetchApi } from "@/hooks/useFetchApi";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import CardSkeleton from "@/components/loader/CardSkeleton";
 import { Link } from "@/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BannerSearchOverlay from "./BannerSearchOverlay";
 
 const CardsSlider = ({ data, loading, error }) => {
@@ -87,12 +87,9 @@ const CardsSlider = ({ data, loading, error }) => {
                     <div className={styles.image_container}>
                       <Swiper
                         cssMode={true}
-                        pagination={true}
-                        mousewheel={true}
-                        keyboard={true}
-                        /*  navigation={!isMobile} */
+                        keyboard={false}
                         loop={true}
-                        modules={[Navigation, Pagination, Mousewheel]}
+                        modules={[Navigation]}
                         className="mySwiper"
                       >
                         {item.images.map((image, index) => (
@@ -141,6 +138,13 @@ const BannerSearch = ({ translations }) => {
     banner_2_1400,
     banner_1_530,
     banner_2_530,
+    title,
+    placeholder,
+    button,
+    recommendation,
+    small_1,
+    title_2,
+    p_1,
   } = translations;
 
   const { data, loading, error } = useFetchApi(
@@ -160,7 +164,7 @@ const BannerSearch = ({ translations }) => {
     <>
       <section className={styles.container}>
         <div className={styles.limit}>
-          <h1 className={styles.title}>Que quieres hacer?</h1>
+          <h1 className={styles.title}>{title}</h1>
           <nav className={styles.nav}>
             <ul>
               <li>
@@ -224,7 +228,7 @@ const BannerSearch = ({ translations }) => {
           <div className={styles.search}>
             <input
               type="text"
-              placeholder="Lugares donde ir, cosas que hacer..."
+              placeholder={placeholder}
               onClick={() => setSearchActive(true)}
             />
             {searchActive && (
@@ -233,7 +237,12 @@ const BannerSearch = ({ translations }) => {
                   className={styles.overlay}
                   onClick={() => setSearchActive(false)}
                 ></div>
-                <BannerSearchOverlay outstanding={data} locale={locale} />
+                <BannerSearchOverlay
+                  outstanding={data}
+                  locale={locale}
+                  setSearchActive={setSearchActive}
+                  translations={translations}
+                />
               </>
             )}
           </div>
@@ -241,14 +250,14 @@ const BannerSearch = ({ translations }) => {
             <div className={styles.search_mobile_input}>
               <input
                 type="text"
-                placeholder="🔎 Lugares donde ir, cosas que hacer..."
+                placeholder={`🔎 ${placeholder}`}
                 onClick={() => setSearchActive(true)}
               />
               <button
                 className={styles.btn_search}
                 onClick={() => setSearchActive(true)}
               >
-                Buscar
+                {button}
               </button>
             </div>
             {searchActive && (
@@ -261,6 +270,7 @@ const BannerSearch = ({ translations }) => {
                   outstanding={data}
                   locale={locale}
                   setSearchActive={setSearchActive}
+                  translations={translations}
                 />
               </>
             )}
@@ -321,11 +331,9 @@ const BannerSearch = ({ translations }) => {
       </section>
       <section className={styles.container2}>
         <div className={styles.limit}>
-          <small className={styles.small}>Recomendaciones</small>
-          <h2 className={styles.h2}>Lugares recomendados</h2>
-          <p className={styles.sub_title}>
-            Estos son los lugares que te recomendamos desde TourCoin.
-          </p>
+          <small className={styles.small}>{small_1}</small>
+          <h2 className={styles.h2}>{title_2}</h2>
+          <p className={styles.sub_title}>{p_1}</p>
 
           <CardsSlider data={data} loading={loading} error={error} />
         </div>

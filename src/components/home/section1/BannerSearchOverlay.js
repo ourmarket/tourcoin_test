@@ -5,10 +5,15 @@ import { Link } from "@/navigation";
 import styles from "./BannerSearchOverlay.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { FaArrowLeft } from "react-icons/fa";
 import { MdOutlineArrowBack } from "react-icons/md";
 
-const BannerSearchOverlay = ({ outstanding, locale, setSearchActive }) => {
+const BannerSearchOverlay = ({
+  outstanding,
+  locale,
+  setSearchActive,
+  translations,
+}) => {
+  const { placeholder, recommendation, empty_recommendation } = translations;
   const [input, setInput] = useState("");
   const [data, setData] = useState([]);
   const handleInputChange = (e) => {
@@ -38,7 +43,7 @@ const BannerSearchOverlay = ({ outstanding, locale, setSearchActive }) => {
       </div>
       <input
         type="text"
-        placeholder="Lugares donde ir, cosas que hacer..."
+        placeholder={placeholder}
         id={styles.input_overlay}
         onChange={handleInputChange}
       />
@@ -60,12 +65,17 @@ const BannerSearchOverlay = ({ outstanding, locale, setSearchActive }) => {
                   </div>
                   <div className={styles.text}>
                     <h4>{item.localization[locale].title}</h4>
-                    <p>Recomendación</p>
+                    <p>{recommendation}</p>
                   </div>
                 </div>
               </Link>
             );
           })}
+        {data.length === 0 && input && (
+          <div>
+            <p>{empty_recommendation}</p>
+          </div>
+        )}
         {data &&
           data.map((item) => {
             return (
