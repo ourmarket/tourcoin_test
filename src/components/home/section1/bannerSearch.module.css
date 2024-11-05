@@ -120,6 +120,10 @@
 .image_container {
   width: 430px;
 }
+.image_container img {
+  width: 100%;
+  display: block;
+}
 .card h3 {
   font-family: var(--font_4);
   font-size: 17px;
@@ -151,110 +155,33 @@
 }
 @media (max-width: 1395px) {
   .card {
-    width: 400px;
+    width: 100%;
+    max-width: 30vw;
   }
   .image_container {
-    width: 400px;
+    width: 100%;
+    max-width: 30vw;
   }
 }
-@media (max-width: 1322px) {
-  .card {
-    width: 350px;
-  }
-  .image_container {
-    width: 350px;
-  }
-}
-@media (max-width: 1163px) {
-  .card {
-    width: 300px;
-  }
-  .image_container {
-    width: 300px;
-  }
-}
+
 @media (max-width: 1010px) {
   .card {
-    width: 430px;
+    max-width: 45vw;
+    width: 99%;
   }
   .image_container {
-    width: 430px;
-  }
-}
-@media (max-width: 960px) {
-  .card {
-    width: 400px;
-  }
-  .image_container {
-    width: 400px;
-  }
-}
-@media (max-width: 896px) {
-  .card {
-    width: 370px;
-  }
-  .image_container {
-    width: 370px;
-  }
-}
-@media (max-width: 830px) {
-  .card {
-    width: 330px;
-  }
-  .image_container {
-    width: 330px;
-  }
-}
-@media (max-width: 757px) {
-  .card {
-    width: 300px;
-  }
-  .image_container {
-    width: 300px;
+    max-width: 44vw;
+    width: 100%;
   }
 }
 @media (max-width: 698px) {
   .card {
+    max-width: 93vw;
     width: 100%;
   }
   .image_container {
-    width: 550px;
-  }
-  .cards_container {
-    padding: 0;
+    max-width: 93vw;
     width: 100%;
-  }
-}
-@media (max-width: 571px) {
-  .card {
-    width: 100%;
-  }
-  .image_container {
-    width: 450px;
-  }
-  .cards_container {
-    padding: 0;
-    width: 100%;
-  }
-}
-@media (max-width: 471px) {
-  .card {
-    width: 100%;
-  }
-  .image_container {
-    width: 350px;
-  }
-  .cards_container {
-    padding: 0;
-    width: 100%;
-  }
-}
-@media (max-width: 371px) {
-  .card {
-    width: 100%;
-  }
-  .image_container {
-    width: 300px;
   }
   .cards_container {
     padding: 0;

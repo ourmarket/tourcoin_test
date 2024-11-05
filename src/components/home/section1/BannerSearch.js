@@ -45,7 +45,7 @@ const CardsSlider = ({ data, loading, error }) => {
   return (
     <div className={styles.cards_container}>
       <Swiper
-        spaceBetween={10}
+        spaceBetween={20}
         slidesPerView={3}
         breakpoints={{
           0: {
