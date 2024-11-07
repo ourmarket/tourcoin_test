@@ -291,6 +291,16 @@ const BannerSearch = ({ translations }) => {
             >
               <SwiperSlide>
                 <div className={styles.banner_img}>
+                  <img
+                    src={
+                      "https://ik.imagekit.io/mrprwema7/Tour%20Coin/banners/Agregar%20un%20t%C3%ADtulo%20(1)_hmO1nXY5w.webp?updatedAt=1730982493151"
+                    }
+                    alt="tourCoin"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.banner_img}>
                   <img src={banner_1_1400} alt="tourCoin" />
                 </div>
               </SwiperSlide>
@@ -315,6 +325,16 @@ const BannerSearch = ({ translations }) => {
               }}
               modules={[Autoplay, Navigation, Pagination, Mousewheel]}
             >
+              <SwiperSlide>
+                <div className={styles.banner_img}>
+                  <img
+                    src={
+                      "https://ik.imagekit.io/mrprwema7/Tour%20Coin/banners/Tu%20pr%C3%B3xima%20aventura%20empieza%20aqu%C3%AD_NzUO3H1Fco.webp?updatedAt=1730983412611"
+                    }
+                    alt="tourCoin"
+                  />
+                </div>
+              </SwiperSlide>
               <SwiperSlide>
                 <div className={styles.banner_img}>
                   <img src={banner_1_530} alt="tourCoin" />
