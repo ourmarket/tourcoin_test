@@ -329,7 +329,7 @@ const BannerSearch = ({ translations }) => {
                 <div className={styles.banner_img}>
                   <img
                     src={
-                      "https://ik.imagekit.io/mrprwema7/Tour%20Coin/banners/Tu%20pr%C3%B3xima%20aventura%20empieza%20aqu%C3%AD_NzUO3H1Fco.webp?updatedAt=1730983412611"
+                      "https://ik.imagekit.io/mrprwema7/Tour%20Coin/banners/Tu%20pr%C3%B3xima%20aventura%20empieza%20aqu%C3%AD%20(2)_K1zmfEJKZ.webp?updatedAt=1730983961674"
                     }
                     alt="tourCoin"
                   />
