@@ -10,7 +10,7 @@ import {
   setInActive,
 } from "@/redux/mapSlice";
 import styles from "../section1/section1.module.css";
-import { useRouter } from "@/navigation";
+import { Link, useRouter } from "@/navigation";
 import {
   activeMapDetail,
   inactiveMapDetail,
@@ -369,7 +369,7 @@ export const Maps = ({
             >
               <IoCloseOutline size={25} />
             </div>
-            <div
+            {/*        <div
               className={styles.detail_wrapper}
               onClick={() => {
                 router.push(`/alliances/${allianceActive.allianceId}`);
@@ -380,7 +380,19 @@ export const Maps = ({
               <img src={allianceActive.images[0]} alt={allianceActive.city} />
               <h3>{allianceActive?.localization[locale]?.title}</h3>
               <p>{allianceActive?.localization[locale]?.sub_title}</p>
-            </div>
+            </div> */}
+            <Link
+              href={`/alliances/${allianceActive.allianceId}`}
+              className={styles.detail_wrapper}
+              onClick={() => {
+                dispatch(inactiveMapDetail());
+                /*  dispatch(toggleMap()); */
+              }}
+            >
+              <img src={allianceActive.images[0]} alt={allianceActive.city} />
+              <h3>{allianceActive?.localization[locale]?.title}</h3>
+              <p>{allianceActive?.localization[locale]?.sub_title}</p>
+            </Link>
           </div>
         </div>
       )}
