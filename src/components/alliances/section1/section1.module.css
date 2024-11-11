@@ -129,6 +129,9 @@
 .card p {
   color: var(--color-white);
 }
+.full_screen_icon {
+  display: none;
+}
 
 @media (max-width: 1360px) {
   .container {
