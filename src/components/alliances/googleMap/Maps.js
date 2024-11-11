@@ -206,7 +206,7 @@ const defaultMapStyles = [
   },
 ];
 
-function ClientMarker({ data }) {
+function ClientMarker({ data, locale }) {
   const { fullMap } = useSelector((store) => store.ui);
 
   const dispatch = useDispatch();
@@ -286,9 +286,11 @@ function ClientMarker({ data }) {
                 fontWeight: 800,
               }}
             >
-              {data.title}
+              {data.localization[locale]?.title}
             </h2>
-            <h2 style={{ fontSize: "14px", color: "#222" }}>{data.details}</h2>
+            <h2 style={{ fontSize: "14px", color: "#222" }}>
+              {data.localization[locale]?.details}
+            </h2>
           </div>
         </InfoWindow>
       )}
@@ -328,8 +330,9 @@ export const Maps = ({
 
     styles: defaultMapStyles,
   };
+
   const dispatch = useDispatch();
-  const router = useRouter();
+
   const { alliancesDisplay, allianceActive } = useSelector(
     (store) => store.alliances
   );
@@ -369,18 +372,7 @@ export const Maps = ({
             >
               <IoCloseOutline size={25} />
             </div>
-            {/*        <div
-              className={styles.detail_wrapper}
-              onClick={() => {
-                router.push(`/alliances/${allianceActive.allianceId}`);
-                dispatch(inactiveMapDetail());
-                dispatch(toggleMap());
-              }}
-            >
-              <img src={allianceActive.images[0]} alt={allianceActive.city} />
-              <h3>{allianceActive?.localization[locale]?.title}</h3>
-              <p>{allianceActive?.localization[locale]?.sub_title}</p>
-            </div> */}
+
             <Link
               href={`/alliances/${allianceActive.allianceId}`}
               className={styles.detail_wrapper}
@@ -404,7 +396,7 @@ export const Maps = ({
         onLoad={(map) => (mapRef.current = map)}
       >
         {alliancesDisplay.map((item) => (
-          <ClientMarker data={item} key={item.allianceId} />
+          <ClientMarker data={item} locale={locale} key={item.allianceId} />
         ))}
         {marker && (
           <DetailMarker lat={defaultMapCenter.lat} lng={defaultMapCenter.lng} />

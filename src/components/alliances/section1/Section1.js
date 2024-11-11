@@ -232,6 +232,7 @@ export const Section1 = ({ dataApi }) => {
                       defaultMapCenter={defaultMapCenter}
                       defaultMapZoom={defaultMapZoom}
                       marker={false}
+                      locale={locale}
                     />
                   </MapProvider>
                 </div>
