@@ -16,6 +16,8 @@ import CardSkeleton from "@/components/loader/CardSkeleton";
 import { Link } from "@/navigation";
 import { useState } from "react";
 import BannerSearchOverlay from "./BannerSearchOverlay";
+import { useDispatch } from "react-redux";
+import { setCategoryAll, setCategoryTRC } from "@/redux/mapSlice";
 
 const CardsSlider = ({ data, loading, error }) => {
   const cookies = document.cookie;
@@ -146,6 +148,8 @@ const BannerSearch = ({ translations }) => {
     title_2,
     p_1,
   } = translations;
+
+  const dispatch = useDispatch();
 
   const { data, loading, error } = useFetchApi(
     `${process.env.NEXT_PUBLIC_API_URL}/alliances/outstanding`
