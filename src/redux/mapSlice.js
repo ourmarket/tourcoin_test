@@ -6,6 +6,7 @@ const mapSlice = createSlice({
   initialState: {
     alliances: [],
     alliancesDisplay: [],
+    allianceActive: null,
   },
   reducers: {
     setAlliances: (state, action) => {
@@ -45,6 +46,19 @@ const mapSlice = createSlice({
     setCategoryAll: (state, action) => {
       state.alliancesDisplay = state.alliances;
     },
+
+    setAllianceActive: (state, action) => {
+      const allianceId = action.payload;
+      const alliance = state.alliancesDisplay.find(
+        (alliance) => alliance.allianceId === allianceId
+      );
+      if (alliance) {
+        state.allianceActive = alliance;
+      }
+    },
+    setClearAllianceActive: (state, action) => {
+      state.allianceActive = null;
+    },
     clearAlliances: (state) => {
       state.alliancesDisplay = [];
     },
@@ -59,5 +73,7 @@ export const {
   setCategoryAll,
   clearAlliances,
   setCategoryTRC,
+  setAllianceActive,
+  setClearAllianceActive,
 } = mapSlice.actions;
 export default mapSlice.reducer;

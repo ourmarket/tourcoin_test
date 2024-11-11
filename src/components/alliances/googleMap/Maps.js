@@ -1,10 +1,23 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setActive, setInActive } from "@/redux/mapSlice";
+import {
+  setActive,
+  setAllianceActive,
+  setClearAllianceActive,
+  setInActive,
+} from "@/redux/mapSlice";
 import styles from "../section1/section1.module.css";
 import { useRouter } from "@/navigation";
+import {
+  activeMapDetail,
+  inactiveMapDetail,
+  toggleMap,
+  toggleMapDetail,
+} from "@/redux/uiSlice";
+import { IoCloseOutline } from "react-icons/io5";
 
 const defaultMapStyles = [
   {
@@ -194,7 +207,8 @@ const defaultMapStyles = [
 ];
 
 function ClientMarker({ data }) {
-  console.log(data);
+  const { fullMap } = useSelector((store) => store.ui);
+
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -208,7 +222,14 @@ function ClientMarker({ data }) {
 
   const handleClick = () => {
     // Navegación a una nueva ruta
-    router.push(`/alliances/${data.allianceId}`);
+    if (!fullMap) {
+      router.push(`/alliances/${data.allianceId}`);
+    }
+    if (fullMap) {
+      dispatch(activeMapDetail());
+      dispatch(setAllianceActive(data.allianceId));
+      dispatch(setActive(data.allianceId));
+    }
   };
 
   const divStyle = {
@@ -240,11 +261,11 @@ function ClientMarker({ data }) {
       onMouseOver={handleFocus}
       onMouseOut={handleBlur}
       onClick={handleClick}
-      /*  icon={
+      /*    icon={ 
         "https://ik.imagekit.io/mrprwema7/Tour%20Coin/icon_eebdZFS_f.png?updatedAt=1717856754739"
-      } */
+      }  */
     >
-      {data.active && (
+      {data.active && !fullMap && (
         <InfoWindow
           position={{
             lat: data.lat,
@@ -289,6 +310,7 @@ export const Maps = ({
   defaultMapCenter,
   defaultMapZoom,
   marker,
+  locale,
 }) => {
   //Map options
   const defaultMapOptions = {
@@ -302,8 +324,12 @@ export const Maps = ({
 
     styles: defaultMapStyles,
   };
-
-  const { alliancesDisplay } = useSelector((store) => store.alliances);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { alliancesDisplay, allianceActive } = useSelector(
+    (store) => store.alliances
+  );
+  const { fullMapDetail } = useSelector((store) => store.ui);
 
   const [center, setCenter] = useState(defaultMapCenter);
 
@@ -326,6 +352,34 @@ export const Maps = ({
 
   return (
     <div className={styles.map_container}>
+      {fullMapDetail && allianceActive && (
+        <div className={styles.map_container_detail}>
+          <div className={styles.wrapper}>
+            <div
+              className={styles.close_btn}
+              onClick={() => {
+                dispatch(inactiveMapDetail());
+                dispatch(setClearAllianceActive());
+                dispatch(setInActive(allianceActive.allianceId));
+              }}
+            >
+              <IoCloseOutline size={25} />
+            </div>
+            <div
+              className={styles.detail_wrapper}
+              onClick={() => {
+                router.push(`/alliances/${allianceActive.allianceId}`);
+                dispatch(inactiveMapDetail());
+                dispatch(toggleMap());
+              }}
+            >
+              <img src={allianceActive.images[0]} alt={allianceActive.city} />
+              <h3>{allianceActive?.localization[locale]?.title}</h3>
+              <p>{allianceActive?.localization[locale]?.sub_title}</p>
+            </div>
+          </div>
+        </div>
+      )}
       <GoogleMap
         mapContainerStyle={defaultMapContainerStyle}
         center={center}

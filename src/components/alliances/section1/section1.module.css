@@ -170,6 +170,15 @@
   .right {
     width: 100%;
   }
+  .container {
+    margin-top: 145px;
+    margin-bottom: 70px;
+    padding: 0px;
+  }
+  .limit {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
   .map_absolute {
     position: sticky;
     background-color: #5a5a5a;
@@ -184,6 +193,34 @@
     border: 1px solid #5a5a5a;
     border-radius: 10px;
     overflow: hidden;
+    margin: 20px;
+  }
+  .map_absolute_full {
+    position: sticky;
+
+    align-self: flex-start;
+
+    top: 200px;
+    height: auto;
+
+    width: 100%;
+
+    border-radius: 0px;
+    overflow: hidden;
+  }
+  .full_screen_icon {
+    background-color: var(--color-white);
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 99999;
+    padding: 5px;
+    color: #7a7a7a;
+    border-radius: 3px;
   }
   .cards_container {
     display: flex;
@@ -205,8 +242,61 @@
   .image_container_active {
     width: 100%;
   }
-}
+  .map_container_detail {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
 
+    background-color: var(--color-white);
+    z-index: 999999;
+    border-radius: 10px;
+  }
+  .wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .map_container_detail img {
+    width: 100%;
+    display: block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .map_container_detail h3 {
+    color: #242424;
+    font-size: 17px;
+    text-align: center;
+    padding: 0 10px;
+    padding-top: 5px;
+  }
+  .map_container_detail p {
+    color: var(--color-black3);
+    text-align: center;
+    color: #4e4e4e;
+    padding: 10px;
+    padding-top: 0;
+    font-size: 14px;
+  }
+  .close_btn {
+    position: absolute;
+    z-index: 9999999;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+}
 @media (max-width: 600px) {
   .image_container:hover {
     border: 1px solid #5a5a5a;

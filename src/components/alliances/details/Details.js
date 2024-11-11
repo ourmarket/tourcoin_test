@@ -301,6 +301,7 @@ const OtherCategory = ({ data, translations }) => {
           </div>
         </div>
         <div className={styles.map_mobile}>
+          <h3 style={{ textAlign: "center", marginBottom: 20 }}>Ubicación</h3>
           <Maps
             defaultMapContainerStyle={defaultMapContainerStyle}
             defaultMapCenter={defaultMapCenter}
