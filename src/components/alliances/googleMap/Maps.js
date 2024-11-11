@@ -213,11 +213,15 @@ function ClientMarker({ data }) {
   const router = useRouter();
 
   const handleFocus = () => {
-    dispatch(setActive(data.allianceId));
+    if (!fullMap) {
+      dispatch(setActive(data.allianceId));
+    }
   };
 
   const handleBlur = () => {
-    dispatch(setInActive(data.allianceId));
+    if (!fullMap) {
+      dispatch(setInActive(data.allianceId));
+    }
   };
 
   const handleClick = () => {

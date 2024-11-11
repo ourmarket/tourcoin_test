@@ -13,7 +13,13 @@ import { useEffect, useRef, useState } from "react";
 import { MapProvider } from "../googleMap/MapProvider";
 import { Maps } from "../googleMap/Maps";
 import { useDispatch, useSelector } from "react-redux";
-import { setActive, setAlliances, setInActive } from "@/redux/mapSlice";
+import {
+  setActive,
+  setAlliances,
+  setClearAllianceActive,
+  setInActive,
+  setInActiveAll,
+} from "@/redux/mapSlice";
 import { AiOutlineExpand } from "react-icons/ai";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { toggleMap } from "@/redux/uiSlice";
@@ -113,7 +119,7 @@ export const Section1 = ({ dataApi }) => {
       setMapContainerHeight(`${mapHeight.current.offsetHeight}px`);
     } else {
       // 100vh - 145px
-      setMapContainerHeight("calc(100vh - 145px)");
+      setMapContainerHeight("calc(100dvh - 145px)");
     }
   }, [fullMap]);
 
@@ -157,7 +163,11 @@ export const Section1 = ({ dataApi }) => {
               {fullMap && (
                 <div
                   className={styles.full_screen_icon}
-                  onClick={() => dispatch(toggleMap())}
+                  onClick={() => {
+                    dispatch(toggleMap());
+                    dispatch(setClearAllianceActive());
+                    dispatch(setInActiveAll());
+                  }}
                 >
                   <MdOutlineArrowBack size={30} />
                 </div>

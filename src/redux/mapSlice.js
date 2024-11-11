@@ -32,6 +32,12 @@ const mapSlice = createSlice({
         alliance.active = false;
       }
     },
+    setInActiveAll: (state) => {
+      state.alliancesDisplay = state.alliancesDisplay.map((alliance) => ({
+        ...alliance,
+        active: false,
+      }));
+    },
     setCategory: (state, action) => {
       const category = action.payload.category;
       state.alliancesDisplay = state.alliances.filter(
@@ -75,5 +81,6 @@ export const {
   setCategoryTRC,
   setAllianceActive,
   setClearAllianceActive,
+  setInActiveAll,
 } = mapSlice.actions;
 export default mapSlice.reducer;
