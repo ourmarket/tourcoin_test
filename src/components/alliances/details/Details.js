@@ -68,12 +68,12 @@ const Accommodation = ({ data, translations }) => {
             <p style={{ marginBottom: "5px" }}>
               <strong>{data.service_1}</strong>
             </p>
-            <p>{data.service_1_1}</p>
+            <p>{data.service_1_details}</p>
             <br />
             <p style={{ marginBottom: "5px" }}>
               <strong>{data.service_2}</strong>
             </p>
-            <p>{data.service_2_1}</p>
+            <p>{data.service_2_details}</p>
             <br />
           </div>
         </div>
@@ -83,7 +83,7 @@ const Accommodation = ({ data, translations }) => {
             <button className={styles.btn}>WhatsApp</button>
           </a>
           <a href={data.link_airbnb} target="_blank">
-            <button className={styles.btn}>{translations.airbnb}</button>
+            <button className={styles.btn}>Airbnb</button>
           </a>
         </div>
       </div>
