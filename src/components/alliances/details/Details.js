@@ -75,13 +75,22 @@ const Accommodation = ({ data, translations }) => {
           </div>
         </div>
         <div className={styles.right}>
-          <h3>{translations.consult}</h3>
-          <a href={data.link_whatsapp} target="_blank">
-            <button className={styles.btn}>WhatsApp</button>
-          </a>
-          <a href={data.link_airbnb} target="_blank">
-            <button className={styles.btn}>Airbnb</button>
-          </a>
+          {data?.accept_TRC && (
+            <PaidTrc
+              translations={translations}
+              wallet={data.wallet}
+              alliance={data.title}
+            />
+          )}
+          <div className={styles.contact}>
+            <h3>{translations.consult}</h3>
+            <a href={data.link_whatsapp} target="_blank">
+              <button className={styles.btn}>WhatsApp</button>
+            </a>
+            <a href={data.link_airbnb} target="_blank">
+              <button className={styles.btn}>Airbnb</button>
+            </a>
+          </div>
         </div>
       </div>
     </div>

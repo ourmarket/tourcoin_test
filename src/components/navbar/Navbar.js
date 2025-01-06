@@ -118,8 +118,10 @@ export const Navbar = ({
               <Link href="/profile">{profile}</Link>
             </button>
           </div>
-          <div className={styles.links_mobile} onClick={() => setMobile(true)}>
-            <FaUserCircle size={"1.9rem"} color={"#f9ba32"} />
+          <div className={styles.links_mobile}>
+            <Link href="/profile">
+              <FaUserCircle size={"1.9rem"} color={"#f9ba32"} />
+            </Link>
           </div>
         </div>
       </motion.nav>

@@ -276,6 +276,17 @@
   justify-content: center;
   color: var(--color-yellow);
 }
+.contact {
+  display: flex;
+  flex-direction: column;
+  flex: 0.8;
+  gap: 30px;
+  margin-bottom: 80px;
+  border: 1px solid #313131;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
 
 @media (max-width: 768px) {
   .container {
