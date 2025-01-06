@@ -10,10 +10,7 @@ import "swiper/css/pagination";
 import { Mousewheel, Navigation, Pagination } from "swiper/modules";
 import { MapProvider } from "../googleMap/MapProvider";
 import { Maps } from "../googleMap/Maps";
-import { useSelector } from "react-redux";
-import axios from "axios";
-import { decimalLimit } from "@/utils/decimalLimit";
-import { useGetBalance } from "@/hooks/useGetBalance";
+import PaidTrc from "./PaidTrc";
 
 const CardSlider = ({ images }) => {
   return (
@@ -117,68 +114,6 @@ const OtherCategory = ({ data, translations }) => {
 
   // api dolar crypto https://dolarapi.com/v1/dolares/cripto
 
-  useGetBalance();
-  const { amountTRC, TRCPrice } = useSelector((state) => state.balance);
-
-  const [quantityTRC, setQuantityTRC] = useState(0);
-  const [quantityLocal, setQuantityLocal] = useState(undefined);
-  const [valueARS, setValueARS] = useState(0);
-  const [valueBRL, setValueBRL] = useState(0);
-  const [localCurrency, setLocalCurrency] = useState("ARS");
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get(
-        "https://dolarapi.com/v1/dolares/cripto"
-      );
-
-      setValueARS(data.compra);
-    };
-    getData();
-  }, []);
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get(
-        "https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=brl"
-      );
-
-      setValueBRL(data.tether.brl);
-    };
-    if (data?.accept_TRC) {
-      getData();
-    }
-  }, []);
-
-  const handleValueChange = (newValue) => {
-    if (localCurrency === "ARS") {
-      setQuantityLocal(newValue);
-      setQuantityTRC(decimalLimit(newValue / valueARS / TRCPrice));
-    }
-    if (localCurrency === "BRL") {
-      setQuantityLocal(newValue);
-      setQuantityTRC(decimalLimit(newValue / valueBRL / TRCPrice));
-    }
-    if (localCurrency === "USD") {
-      setQuantityLocal(newValue);
-      setQuantityTRC(decimalLimit(newValue / TRCPrice));
-    }
-  };
-  const handleCurrencyChange = (newValue) => {
-    if (newValue === "ARS") {
-      setLocalCurrency(newValue);
-      setQuantityTRC(decimalLimit(quantityLocal / valueARS / TRCPrice));
-    }
-    if (newValue === "BRL") {
-      setLocalCurrency(newValue);
-      setQuantityTRC(decimalLimit(quantityLocal / valueBRL / TRCPrice));
-    }
-    if (newValue === "USD") {
-      setLocalCurrency(newValue);
-      setQuantityTRC(decimalLimit(quantityLocal / TRCPrice));
-    }
-  };
-
   return (
     <MapProvider>
       <div className={styles.limit}>
@@ -222,56 +157,11 @@ const OtherCategory = ({ data, translations }) => {
           </div>
           <div className={styles.right}>
             {data?.accept_TRC && (
-              <div className={styles.payment}>
-                <h3>Pagar</h3>
-                <p>
-                  Desde aquí puedes pagar a Gráfica Net Print con tus tokens TRC
-                </p>
-
-                <div className={styles.input}>
-                  <label>Moneda Local</label>
-                  <select
-                    onChange={(e) => handleCurrencyChange(e.target.value)}
-                    value={localCurrency}
-                  >
-                    <option value="ARS">ARS</option>
-                    <option value="BRL">BRL</option>
-                    <option value="USD">USD</option>
-                  </select>
-                </div>
-                <div className={styles.input}>
-                  <label>Monto en moneda local</label>
-                  <input
-                    type="number"
-                    placeholder="0.00"
-                    value={quantityLocal}
-                    onChange={(e) => handleValueChange(e.target.value)}
-                  />
-                </div>
-
-                <div className={styles.row}>
-                  <div className={styles.row_50}>
-                    <label>Cantidad a pagar</label>
-                    <input
-                      disabled={true}
-                      type="text"
-                      placeholder="0.00"
-                      value={`${quantityTRC} TRC`}
-                    />
-                  </div>
-                  <div className={styles.row_50}>
-                    <label>Disponible</label>
-                    <input
-                      disabled={true}
-                      type="text"
-                      placeholder="0.00"
-                      value={`${amountTRC} TRC`}
-                    />
-                  </div>
-                </div>
-
-                <button className={styles.btn}>Pagar</button>
-              </div>
+              <PaidTrc
+                translations={translations}
+                wallet={data.wallet}
+                alliance={data.title}
+              />
             )}
             {(data?.link_airbnb ||
               data?.link_web ||

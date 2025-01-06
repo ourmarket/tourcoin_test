@@ -146,21 +146,3 @@ const LockTokens = () => {
 };
 
 export default LockTokens;
-
-/* export const interestData = [
-  {
-    durationCode: 0,
-    durationText: "1 min",
-    interest: 2,
-  },
-  {
-    durationCode: 1,
-    durationText: "5 min",
-    interest: 3,
-  },
-  {
-    durationCode: 2,
-    durationText: "10 min",
-    interest: 4,
-  },
-]; */
