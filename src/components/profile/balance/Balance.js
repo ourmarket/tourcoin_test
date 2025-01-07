@@ -2,9 +2,9 @@ import { useGetBalance } from "@/hooks/useGetBalance";
 import styles from "./balance.module.css";
 import { useSelector } from "react-redux";
 
-const Balance = () => {
+const Balance = ({ address }) => {
   useGetBalance();
-  const { address } = useSelector((state) => state.auth);
+
   const { TRCPrice, BNBPrice, amountTRC, amountBNB, isLoading, errorBalance } =
     useSelector((state) => state.balance);
 

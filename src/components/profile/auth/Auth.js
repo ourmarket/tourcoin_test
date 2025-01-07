@@ -25,24 +25,24 @@ const Auth = ({ translations }) => {
 
   // 1.  Click en el botón de conectar, se inicia el proceso de autenticación
 
-  const handleConnect = async () => {
+  /* const handleConnect = async () => {
     if (!address) {
       dispatch(setAuthProcess(true));
     }
-  };
+  }; */
 
   // 2. Cuando este conectada la wallet, se guarda en el store
-  useEffect(() => {
+  /* useEffect(() => {
     if (addressUser) {
       dispatch(setAddress(addressUser));
     } else {
       dispatch(clearAuth());
     }
-  }, [addressUser, dispatch]);
+  }, [addressUser, dispatch]); */
 
   // 3. Se envía la petición a la API de nonce y luego se recibe el token. Tiene que existir address y authProcess = true
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (address && authProcess) {
       const fetchNonce = async () => {
         try {
@@ -61,10 +61,10 @@ const Auth = ({ translations }) => {
       fetchNonce();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address]);
+  }, [address]); */
 
   // función que se encarga de autenticar el usuario
-  const authenticateUser = async (nonce) => {
+  /*  const authenticateUser = async (nonce) => {
     if (!window.ethereum) {
       dispatch(setError("MetaMask is not installed."));
       console.error("MetaMask is not installed.");
@@ -93,11 +93,11 @@ const Auth = ({ translations }) => {
     } finally {
       dispatch(setAuthProcess(false));
     }
-  };
+  }; */
 
   //
 
-  useEffect(() => {
+  /*   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
     const refreshToken = localStorage.getItem("refreshToken");
     if (authToken) {
@@ -105,14 +105,14 @@ const Auth = ({ translations }) => {
       dispatch(setRefreshToken(refreshToken));
       dispatch(setIsAuthenticated(true));
     }
-  }, [dispatch]);
+  }, [dispatch]); */
 
   return (
     <w3m-button
       balance="false"
       size="sm"
       label={connect}
-      onClick={handleConnect}
+      /*  onClick={handleConnect} */
     />
   );
 };
