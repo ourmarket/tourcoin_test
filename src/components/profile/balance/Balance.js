@@ -1,9 +1,12 @@
+"use client";
 import { useGetBalance } from "@/hooks/useGetBalance";
 import styles from "./balance.module.css";
 import { useSelector } from "react-redux";
+import { useAccount } from "wagmi";
 
-const Balance = ({ address }) => {
+const Balance = () => {
   useGetBalance();
+  const { address } = useAccount();
 
   const { TRCPrice, BNBPrice, amountTRC, amountBNB, isLoading, errorBalance } =
     useSelector((state) => state.balance);

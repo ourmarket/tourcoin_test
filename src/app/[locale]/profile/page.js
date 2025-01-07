@@ -1,5 +1,5 @@
 import { Navbar_index } from "@/components/navbar";
-import MainProfile from "@/components/profile/main/Main";
+import MainProfile from "@/components/profile_original/main/Main";
 import { Footer } from "@/components/footer/Footer";
 import { useTranslations } from "next-intl";
 
