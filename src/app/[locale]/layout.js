@@ -59,9 +59,7 @@ export default async function RootLayout({ children, params: { locale } }) {
       </head>
 
       <body className={inter.className}>
-        <ClientLayout>
-          <Web3ModalProvider cookies={cookies}>{children}</Web3ModalProvider>
-        </ClientLayout>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
