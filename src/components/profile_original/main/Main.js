@@ -35,17 +35,16 @@ const MainProfile = ({ translations }) => {
           <span className="loader"></span>
         </div>
       )}
-      {address && balanceBnb && address && priceTrcData && priceBnbData && (
-        <Balance_original
-          data={{
-            address,
-            balanceTrc,
-            balanceBnb: balanceBnb.formatted,
-          }}
-          priceTrcData={priceTrcData}
-          priceBnbData={priceBnbData}
-        />
-      )}
+
+      <Balance_original
+        data={{
+          address,
+          balanceTrc,
+          balanceBnb: balanceBnb?.formatted,
+        }}
+        priceTrcData={priceTrcData}
+        priceBnbData={priceBnbData}
+      />
     </section>
   );
 };
