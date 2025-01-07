@@ -3,7 +3,7 @@ import styles from "./details.module.css";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useGetBalance } from "@/hooks/useGetBalance";
-import axios, { all } from "axios";
+import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ABI_TRC, TRC_CONTRACT } from "../../../../data/data_exchange";
@@ -12,13 +12,14 @@ import { parseUnits } from "viem/utils";
 import { useWriteContract } from "wagmi";
 import { estimateGas } from "@wagmi/core";
 import { config } from "@/config/wagmiConfig";
-import { IoMdClose } from "react-icons/io";
-import { FaRegCheckCircle } from "react-icons/fa";
 import PaymentModal from "./PaymentModal";
 import LoadingModal from "./LoadingModal";
 import SuccessModal from "./SuccessModal";
 
 const PaidTrc = ({ translations, wallet, alliance }) => {
+  const { pay, pay_p, label_1, label_2, label_3, label_4, pay_btn, error_pay } =
+    translations;
+
   useGetBalance();
   const { amountTRC, TRCPrice } = useSelector((state) => state.balance);
 
@@ -123,7 +124,7 @@ const PaidTrc = ({ translations, wallet, alliance }) => {
     } catch (error) {
       console.error(error);
       setError("Hubo un error al transferir los tokens");
-      toast.error("Hubo un error al transferir los tokens");
+      toast.error(error_pay);
     } finally {
       setIsLoading(false);
     }
@@ -140,6 +141,7 @@ const PaidTrc = ({ translations, wallet, alliance }) => {
           alliance={alliance}
           setPaymentModal={setPaymentModal}
           handlePay={handlePay}
+          translations={translations}
         />
       )}
       {isLoading && (
@@ -147,14 +149,21 @@ const PaidTrc = ({ translations, wallet, alliance }) => {
           quantityTRC={quantityTRC}
           alliance={alliance}
           setIsLoading={setIsLoading}
+          translations={translations}
         />
       )}
-      {receipt && <SuccessModal receipt={receipt} setReceipt={setReceipt} />}
-      <h3>Pagar</h3>
-      <p>Desde aquí puedes pagar a Gráfica Net Print con tus tokens TRC</p>
+      {receipt && (
+        <SuccessModal
+          receipt={receipt}
+          setReceipt={setReceipt}
+          translations={translations}
+        />
+      )}
+      <h3>{pay}</h3>
+      <p>{pay_p}</p>
 
       <div className={styles.input}>
-        <label>Moneda Local</label>
+        <label>{label_1}</label>
         <select
           onChange={(e) => handleCurrencyChange(e.target.value)}
           value={localCurrency}
@@ -165,19 +174,18 @@ const PaidTrc = ({ translations, wallet, alliance }) => {
         </select>
       </div>
       <div className={styles.input}>
-        <label>Monto en moneda local</label>
+        <label>{label_2}</label>
         <input
           type="number"
           placeholder="0.00"
           value={quantityLocal}
           onChange={(e) => handleValueChange(e.target.value)}
-          autoFocus={true}
         />
       </div>
 
       <div className={styles.row}>
         <div className={styles.row_50}>
-          <label>Cantidad a pagar</label>
+          <label>{label_3}</label>
           <input
             disabled={true}
             type="text"
@@ -186,7 +194,7 @@ const PaidTrc = ({ translations, wallet, alliance }) => {
           />
         </div>
         <div className={styles.row_50}>
-          <label>Disponible</label>
+          <label>{label_4}</label>
           <input
             disabled={true}
             type="text"
@@ -201,7 +209,7 @@ const PaidTrc = ({ translations, wallet, alliance }) => {
         onClick={() => setPaymentModal(true)}
         disabled={quantityLocal <= 0 || !quantityLocal ? true : false}
       >
-        Pagar
+        {pay_btn}
       </button>
     </div>
   );

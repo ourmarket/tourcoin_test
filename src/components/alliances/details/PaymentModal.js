@@ -9,7 +9,9 @@ const PaymentModal = ({
   alliance,
   setPaymentModal,
   handlePay,
+  translations,
 }) => {
+  const { title, sent_to, pay_btn_modal } = translations;
   return (
     <div className={styles.modal}>
       <div
@@ -19,7 +21,7 @@ const PaymentModal = ({
         <button onClick={() => setPaymentModal(false)} className={styles.close}>
           <IoMdClose size={"1.5rem"} />
         </button>
-        <h3 className={styles.modal_title}>Confirma el pago</h3>
+        <h3 className={styles.modal_title}>{title}</h3>
 
         <div className={styles.flex}>
           <p style={{ color: "white" }}>TRC</p>
@@ -28,7 +30,7 @@ const PaymentModal = ({
           >{`${quantityTRC} (${quantityLocal} ${localCurrency})`}</p>
         </div>
         <div className={styles.flex}>
-          <p style={{ color: "white" }}>Enviar a:</p>
+          <p style={{ color: "white" }}>{sent_to}</p>
           <p style={{ color: "white" }}>{alliance}</p>
         </div>
         <button
@@ -39,7 +41,7 @@ const PaymentModal = ({
             handlePay();
           }}
         >
-          Pagar
+          {pay_btn_modal}
         </button>
       </div>
     </div>

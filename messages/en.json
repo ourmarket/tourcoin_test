@@ -228,5 +228,24 @@
     "small_1": "Recommendations",
     "title_2": "Recommended Places",
     "p_1": "These are the places we recommend from TourCoin."
+  },
+  "alliance_pay": {
+    "pay": "Pay",
+    "pay_p": "From here you can pay with your TRC tokens",
+    "label_1": "Local Currency",
+    "label_2": "Amount in local currency",
+    "label_3": "Amount to pay",
+    "label_4": "Available",
+    "pay_btn": "Pay",
+    "error": "There was an error transferring the tokens"
+  },
+  "PaymentModal": {
+    "title": "Confirm the payment",
+    "sent_to": "Send to:",
+    "pay_btn": "Pay",
+    "loading": "Processing the payment",
+    "send": "Sending",
+    "receipt": "Transaction receipt",
+    "BscScan": "View on BscScan:"
   }
 }
