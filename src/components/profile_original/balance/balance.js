@@ -1,7 +1,7 @@
 import { formatUnits } from "viem";
 import styles from "./balance.module.css";
 
-const Balance = ({ data, priceTrcData, priceBnbData }) => {
+const Balance_original = ({ data, priceTrcData, priceBnbData }) => {
   const balanceTrc = +formatUnits(data?.balanceTrc || "", 18);
 
   const balanceBnb = +data.balanceBnb;
@@ -36,4 +36,4 @@ const Balance = ({ data, priceTrcData, priceBnbData }) => {
   );
 };
 
-export default Balance;
+export default Balance_original;

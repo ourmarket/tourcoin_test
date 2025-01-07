@@ -1,9 +1,10 @@
 "use client";
-import Balance from "../balance/Balance";
+
 import { useAccount, useBalance, useReadContract } from "wagmi";
 import { ABI_TRC, TRC_CONTRACT } from "../../../../data/data_exchange";
 import { useFetch } from "@/hooks/useFetch";
 import styles from "./main.module.css";
+import Balance_original from "../balance/balance";
 
 const MainProfile = ({ translations }) => {
   const { connect } = translations;
@@ -35,7 +36,7 @@ const MainProfile = ({ translations }) => {
         </div>
       )}
       {address && balanceBnb && address && priceTrcData && priceBnbData && (
-        <Balance
+        <Balance_original
           data={{
             address,
             balanceTrc,
