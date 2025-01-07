@@ -3,7 +3,7 @@ import "./globals.css";
 import Script from "next/script";
 import ClientLayout from "./ClientLayout";
 import { headers } from "next/headers";
-import Web3ModalProvider from "@/context/Web3ModalProvider";
+import Web3ModalProvider from "@/context/Web3ModalProvider_old";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,7 +59,9 @@ export default async function RootLayout({ children, params: { locale } }) {
       </head>
 
       <body className={inter.className}>
-        <ClientLayout>{children}</ClientLayout>
+        <ClientLayout>
+          <Web3ModalProvider>{children}</Web3ModalProvider>
+        </ClientLayout>
       </body>
     </html>
   );
