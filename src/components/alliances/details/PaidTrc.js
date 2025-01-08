@@ -9,18 +9,20 @@ import "react-toastify/dist/ReactToastify.css";
 import { ABI_TRC, TRC_CONTRACT } from "../../../../data/data_exchange";
 import { decimalLimit } from "@/utils/decimalLimit";
 import { parseUnits } from "viem/utils";
-import { useWriteContract } from "wagmi";
+import { useAccount, useWriteContract } from "wagmi";
 import { estimateGas } from "@wagmi/core";
 import { config } from "@/config/wagmiConfig";
 import PaymentModal from "./PaymentModal";
 import LoadingModal from "./LoadingModal";
 import SuccessModal from "./SuccessModal";
+import { Link } from "@/navigation";
 
 const PaidTrc = ({ translations, wallet, alliance }) => {
   const { pay, pay_p, label_1, label_2, label_3, label_4, pay_btn, error_pay } =
     translations;
 
   useGetBalance();
+  const { address } = useAccount();
   const { amountTRC, TRCPrice } = useSelector((state) => state.balance);
 
   const [quantityTRC, setQuantityTRC] = useState(0);
@@ -131,87 +133,100 @@ const PaidTrc = ({ translations, wallet, alliance }) => {
   };
 
   return (
-    <div className={styles.payment}>
-      <ToastContainer position="top-right" autoClose={5000} />
-      {paymentModal && (
-        <PaymentModal
-          quantityTRC={quantityTRC}
-          quantityLocal={quantityLocal}
-          localCurrency={localCurrency}
-          alliance={alliance}
-          setPaymentModal={setPaymentModal}
-          handlePay={handlePay}
-          translations={translations}
-        />
-      )}
-      {isLoading && (
-        <LoadingModal
-          quantityTRC={quantityTRC}
-          alliance={alliance}
-          setIsLoading={setIsLoading}
-          translations={translations}
-        />
-      )}
-      {receipt && (
-        <SuccessModal
-          receipt={receipt}
-          setReceipt={setReceipt}
-          translations={translations}
-        />
-      )}
-      <h3>{pay}</h3>
-      <p>{pay_p}</p>
+    <>
+      {address && (
+        <div className={styles.payment}>
+          <ToastContainer position="top-right" autoClose={5000} />
+          {paymentModal && (
+            <PaymentModal
+              quantityTRC={quantityTRC}
+              quantityLocal={quantityLocal}
+              localCurrency={localCurrency}
+              alliance={alliance}
+              setPaymentModal={setPaymentModal}
+              handlePay={handlePay}
+              translations={translations}
+            />
+          )}
+          {isLoading && (
+            <LoadingModal
+              quantityTRC={quantityTRC}
+              alliance={alliance}
+              setIsLoading={setIsLoading}
+              translations={translations}
+            />
+          )}
+          {receipt && (
+            <SuccessModal
+              receipt={receipt}
+              setReceipt={setReceipt}
+              translations={translations}
+            />
+          )}
+          <h3>{pay}</h3>
+          <p>{pay_p}</p>
 
-      <div className={styles.input}>
-        <label>{label_1}</label>
-        <select
-          onChange={(e) => handleCurrencyChange(e.target.value)}
-          value={localCurrency}
-        >
-          <option value="ARS">ARS</option>
-          <option value="BRL">BRL</option>
-          <option value="USD">USD</option>
-        </select>
-      </div>
-      <div className={styles.input}>
-        <label>{label_2}</label>
-        <input
-          type="number"
-          placeholder="0.00"
-          value={quantityLocal}
-          onChange={(e) => handleValueChange(e.target.value)}
-        />
-      </div>
+          <div className={styles.input}>
+            <label>{label_1}</label>
+            <select
+              onChange={(e) => handleCurrencyChange(e.target.value)}
+              value={localCurrency}
+            >
+              <option value="ARS">ARS</option>
+              <option value="BRL">BRL</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
+          <div className={styles.input}>
+            <label>{label_2}</label>
+            <input
+              type="number"
+              placeholder="0.00"
+              value={quantityLocal}
+              onChange={(e) => handleValueChange(e.target.value)}
+            />
+          </div>
 
-      <div className={styles.row}>
-        <div className={styles.row_50}>
-          <label>{label_3}</label>
-          <input
-            disabled={true}
-            type="text"
-            placeholder="0.00"
-            value={`${quantityTRC} TRC`}
-          />
+          <div className={styles.row}>
+            <div className={styles.row_50}>
+              <label>{label_3}</label>
+              <input
+                disabled={true}
+                type="text"
+                placeholder="0.00"
+                value={`${quantityTRC} TRC`}
+              />
+            </div>
+            <div className={styles.row_50}>
+              <label>{label_4}</label>
+              <input
+                disabled={true}
+                type="text"
+                placeholder="0.00"
+                value={`${amountTRC} TRC`}
+              />
+            </div>
+          </div>
+
+          <button
+            className={styles.btn}
+            onClick={() => setPaymentModal(true)}
+            disabled={quantityLocal <= 0 || !quantityLocal ? true : false}
+          >
+            {pay_btn}
+          </button>
         </div>
-        <div className={styles.row_50}>
-          <label>{label_4}</label>
-          <input
-            disabled={true}
-            type="text"
-            placeholder="0.00"
-            value={`${amountTRC} TRC`}
-          />
+      )}
+      {!address && (
+        <div className={styles.payment}>
+          <h3>{pay}</h3>
+          <p>{pay_p}</p>
+          <button className={styles.btn}>
+            <Link href={"/profile"}>Conecta tu wallet</Link>
+          </button>
         </div>
-      </div>
-
-      <button
-        className={styles.btn}
-        onClick={() => setPaymentModal(true)}
-        disabled={quantityLocal <= 0 || !quantityLocal ? true : false}
-      >
-        {pay_btn}
-      </button>
-    </div>
+      )}
+    </>
   );
 };
 
