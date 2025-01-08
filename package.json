@@ -9,14 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@pancakeswap/sdk": "^5.8.8",
-    "@pancakeswap/smart-router": "^6.0.17",
-    "@pancakeswap/tokens": "^0.6.23",
     "@react-google-maps/api": "^2.19.3",
     "@reduxjs/toolkit": "^2.2.7",
-    "@reown/appkit-adapter-wagmi": "^1.0.1",
-    "@tanstack/react-query": "^5.56.2",
-    "@web3modal/wagmi": "^5.0.11",
+    "@reown/appkit": "^1.6.3",
+    "@reown/appkit-adapter-wagmi": "^1.6.3",
+    "@tanstack/react-query": "^5.63.0",
     "axios": "^1.7.3",
     "bignumber.js": "^9.1.2",
     "ethers": "^6.13.2",
@@ -35,8 +32,8 @@
     "react-toastify": "^10.0.5",
     "swiper": "^11.0.7",
     "uuid": "^10.0.0",
-    "viem": "^2.21.8",
-    "wagmi": "^2.12.2",
+    "viem": "^2.22.4",
+    "wagmi": "^2.14.6",
     "web3": "^4.11.1",
     "yup": "^1.4.0"
   },

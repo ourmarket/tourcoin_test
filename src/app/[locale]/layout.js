@@ -3,7 +3,7 @@ import "./globals.css";
 import Script from "next/script";
 import ClientLayout from "./ClientLayout";
 import { headers } from "next/headers";
-import Web3ModalProvider from "@/context/Web3ModalProvider_old";
+import Web3ModalProvider from "@/context/Web3ModalProvider_new";
 
 const inter = Inter({ subsets: ["latin"] });
 
