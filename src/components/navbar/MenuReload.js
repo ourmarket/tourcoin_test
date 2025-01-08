@@ -62,8 +62,8 @@ export const MenuReload = ({ translate, setMobile }) => {
             </Link>
           </li>
           <li>
-            <Link href="/profile" onClick={() => setMobile(false)}>
-              {profile}
+            <Link href="/tourcoin" onClick={() => setMobile(false)}>
+              TourCoin
             </Link>
           </li>
           <li>
