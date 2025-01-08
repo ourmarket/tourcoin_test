@@ -26,6 +26,8 @@ const wagmiAdapter = new WagmiAdapter({
   projectId,
 });
 
+export const config = wagmiAdapter.wagmiConfig;
+
 createAppKit({
   adapters: [wagmiAdapter],
   networks: [bsc],

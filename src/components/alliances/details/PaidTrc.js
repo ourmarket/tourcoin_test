@@ -11,7 +11,7 @@ import { decimalLimit } from "@/utils/decimalLimit";
 import { parseUnits } from "viem/utils";
 import { useAccount, useWriteContract } from "wagmi";
 import { estimateGas } from "@wagmi/core";
-import { config } from "@/config/wagmiConfig";
+import { config } from "@/context/Web3ModalProvider_new";
 import PaymentModal from "./PaymentModal";
 import LoadingModal from "./LoadingModal";
 import SuccessModal from "./SuccessModal";
