@@ -17,7 +17,7 @@ import { Link } from "@/navigation";
 import { useState } from "react";
 import BannerSearchOverlay from "./BannerSearchOverlay";
 import { useDispatch } from "react-redux";
-import { setCategoryAll, setCategoryTRC } from "@/redux/mapSlice";
+import { setCategory, setCategoryAll, setCategoryTRC } from "@/redux/mapSlice";
 
 const CardsSlider = ({ data, loading, error }) => {
   const cookies = document.cookie;
@@ -169,66 +169,63 @@ const BannerSearch = ({ translations }) => {
       <section className={styles.container}>
         <div className={styles.limit}>
           <h1 className={styles.title}>{title}</h1>
-          <nav className={styles.nav}>
-            <ul>
-              <li>
-                <Link
-                  href="/alliances?category=all"
-                  onClick={() => dispatch(setCategoryAll())}
-                >
-                  <AiOutlineUnorderedList size={30} /> {li_1}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/alliances?category=accept_TRC"
-                  onClick={() => dispatch(setCategoryTRC())}
-                >
-                  <RiMoneyDollarCircleLine size={30} /> {li_6}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/alliances?category=activities"
-                  onClick={() =>
-                    dispatch(setCategory({ category: "activities" }))
-                  }
-                >
-                  <BsStar size={30} /> {li_5}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/alliances?category=accommodation"
-                  onClick={() =>
-                    dispatch(setCategory({ category: "accommodation" }))
-                  }
-                >
-                  <IoHomeOutline size={30} /> {li_2}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/alliances?category=services"
-                  onClick={() =>
-                    dispatch(setCategory({ category: "services" }))
-                  }
-                >
-                  <BsCompass size={30} /> {li_3}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/alliances?category=gastronomy"
-                  onClick={() =>
-                    dispatch(setCategory({ category: "gastronomy" }))
-                  }
-                >
-                  <MdOutlineDinnerDining size={30} /> {li_4}
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <div className={styles.div1}>
+            <div className={styles.div2}>
+              <Link
+                href="/alliances?category=all"
+                onClick={() => dispatch(setCategoryAll())}
+              >
+                <AiOutlineUnorderedList size={30} /> {li_1}
+              </Link>
+            </div>
+            <div className={styles.div2}>
+              <Link
+                href="/alliances?category=accept_TRC"
+                onClick={() => dispatch(setCategoryTRC())}
+              >
+                <RiMoneyDollarCircleLine size={30} /> {li_6}
+              </Link>
+            </div>
+            <div className={styles.div2}>
+              <Link
+                href="/alliances?category=activities"
+                onClick={() =>
+                  dispatch(setCategory({ category: "activities" }))
+                }
+              >
+                <BsStar size={30} /> {li_5}
+              </Link>
+            </div>
+            <div className={styles.div2}>
+              <Link
+                href="/alliances?category=accommodation"
+                onClick={() =>
+                  dispatch(setCategory({ category: "accommodation" }))
+                }
+              >
+                <IoHomeOutline size={30} /> {li_2}
+              </Link>
+            </div>
+            <div className={styles.div2}>
+              <Link
+                href="/alliances?category=services"
+                onClick={() => dispatch(setCategory({ category: "services" }))}
+              >
+                <BsCompass size={30} /> {li_3}
+              </Link>
+            </div>
+            <div className={styles.div2}>
+              <Link
+                href="/alliances?category=gastronomy"
+                onClick={() =>
+                  dispatch(setCategory({ category: "gastronomy" }))
+                }
+              >
+                <MdOutlineDinnerDining size={30} /> {li_4}
+              </Link>
+            </div>
+          </div>
+
           <div className={styles.search}>
             <input
               type="text"
